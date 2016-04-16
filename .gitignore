@@ -1,0 +1,14 @@
+# symlink
+config.rb
+gulpfile.js
+Movefile
+package.json
+site.yml
+
+# Derectory
+データ/
+HTML/
+assets/font
+assets/img
+assets/sass/foundation
+inc/admin/gapc1m
