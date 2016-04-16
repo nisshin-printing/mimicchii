@@ -1,9 +1,9 @@
 # symlink
-config.rb
-gulpfile.js
-Movefile
-package.json
-site.yml
+/config.rb
+/gulpfile.js
+/Movefile
+/package.json
+/site.yml
 
 # Derectory
 データ/
