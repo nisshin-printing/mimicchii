@@ -1,0 +1,33 @@
+// ============================== Site Maps ============================================================================= //
+footer {
+	padding: {
+		top: 2rem;
+		bottom: 2rem;
+	}
+	a {
+		text-decoration: none;
+		color: $dark-gray;
+		&:hover {
+			color: $white;
+		}
+	}
+}
+.footer-title {
+	border-bottom: 1px solid $dark-gray;
+	color: $gainsboro;
+	padding-left: 1rem;
+	.fa {
+		margin-right: 1rem;
+		font-size: 1.5rem;
+	}
+}
+// ============================== Footer Link ============================================================================= //
+.footer-sns {
+	@extend .text-center;
+	> a {
+		margin: 1rem;
+	}
+}
+.footer-copy {
+	@extend .text-center;
+}

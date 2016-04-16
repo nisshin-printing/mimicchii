@@ -1,0 +1,22 @@
+ul {
+	&.square {
+		list-style: square !important;
+	}
+	&.logo {
+		@extend .no-bullet;
+		> li {
+			width: 100%;
+			display: inline-block;
+			vertical-align: middle;
+			margin-bottom: 1rem;
+			&::before {
+				display: inline-block;
+				content: url(#{$imgfolder}favicon30x30.png);
+				width: 30px;
+				height: 30px;
+				margin-right: 1rem;
+				vertical-align: middle;
+			}
+		}
+	}
+}

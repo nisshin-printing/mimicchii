@@ -1,0 +1,135 @@
+// ============================== Archive ============================================================================= //
+.layout-archive {
+	.link-category {
+		@extend .m0;
+		a {
+			padding: rem-calc(5 10);
+			@extend .b-shadow-1;
+			@extend .bg-primary;
+			@extend .color-white;
+			text-decoration: none;
+			&:hover {
+				@extend .b-shadow-1-half;
+				text-decoration: none;
+			}
+		}
+		.float-right {
+			@extend .m0;
+			padding: rem-calc(5 10);
+			@extend .b-shadow-1;
+			@extend .bg-black;
+			@extend .color-white;
+			text-decoration: none;
+			&:hover {
+				@extend .b-shadow-1-half;
+				text-decoration: none;
+			}
+		}
+	}
+	.card-time {
+		margin-bottom: 0.2rem;
+	}
+}
+// ============================== Portfolio ============================================================================= //
+.layout-portfolio {
+	.article-body {
+		background-color: $body-background;
+	}
+}
+.portfolio-item  {
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+	@include breakpoint( 31.25rem ) {
+		width: 50%;
+		padding-bottom: 50%;
+	}
+	@include breakpoint( 43.75rem ) {
+		width: 33.3333%;
+		padding-bottom: 33.3333%;
+	}
+	@include breakpoint( 63.95rem ) {
+		width: 25%;
+		padding-bottom: 25%;
+	}
+	> .waves-effect {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0;
+		&:hover,
+		&:focus,
+		&:active {
+			.portfolio-box {
+				transition: background-color $mediumDuration;
+				background-color: rgba( $primary-color, .7 );
+			}
+			h3 {
+				transition: transform $mediumDuration;
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+	}
+}
+.portfolio-img {
+	position: relative;
+	img {
+		display: block;
+		min-height: 100%;
+		min-width: 100%;
+	}
+}
+.portfolio-box {
+	@extend .text-center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: background-color $mediumDuration;
+	overflow: hidden;
+	padding: 0 6%;
+	display: flex;
+	align-items: center;
+	flex-align: center;
+	.box-info {
+		display: inline-block;
+		vertical-align: middle;
+		@extend .m0-auto;
+	}
+	h3 {
+		background-color: transparent;
+		color: $white;
+		opacity: 0;
+		transform: translateY( 1rem );
+		@extend .m0;
+		@extend .p0;
+		@extend .b0;
+		font-size: 1rem;
+	}
+}
+// ============================== Pagination ============================================================================= //
+.pagination {
+	@extend .row;
+	@extend .expanded;
+	margin: 1rem auto;
+	> p {
+		@extend .column;
+		a {
+			@extend .button;
+			@extend .expanded;
+		}
+	}
+	ul {
+		@extend .column;
+		@extend .text-center;
+		@extend .m0-auto;
+	}
+}

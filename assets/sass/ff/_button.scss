@@ -1,0 +1,9 @@
+.hollow {
+	border-color: $white;
+	color: $white;
+	&:hover {
+		border-color: $black;
+		color: $black;
+		background-color: $white;
+	}
+}

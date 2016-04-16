@@ -1,0 +1,109 @@
+//========================  Global ========================================================================//
+[class^="fp-"] {
+	padding: {
+		top: 2rem;
+		bottom: 2rem;
+	}
+	&:nth-child( 2n + 2 ) {
+		background-color: $snow;
+	}
+	h2 {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	hr {
+		width: 20px;
+		height: 3px;
+		background-color: $white;
+	}
+}
+.link-fp-cta {
+	@extend .button;
+	@extend .expanded;
+	@extend .column;
+	@extend .mt1;
+}
+//========================  News ========================================================================//
+.fp-news {
+	.news-date {
+		@include breakpoint( medium ) {
+			text-align: right;
+		}
+	}
+	.link-fp-cta {
+		@extend .hollow;
+	}
+	a {
+		color: $white;
+	}
+}
+//========================  Featured ========================================================================//
+.fp-featured {
+	.small-up-1 {
+		@extend .pt2;
+	}
+	.column {
+		@extend .text-center;
+		margin: 2rem auto;
+		p {
+			color: $black;
+			@extend .text-left;
+		}
+	}
+	.fa-5x {
+		color: $black;
+	}
+	h3 {
+		@extend .mb2;
+		color: $black;
+	}
+}
+//========================  Service ========================================================================//
+.fp-service {
+	.small-up-1 {
+		@extend .pt2;
+		a {
+			background: {
+				position: center center;
+				repeat: no-repeat;
+				size: cover;
+				attachment: scroll;
+			}
+			display: table;
+			width: 100%;
+			text-decoration: none;
+			cursor: default;
+			@extend .p0;
+			@extend .color-white;
+			@extend .b-shadow-1;
+		}
+	}
+	.column {
+		@extend .text-center;
+		margin: 2rem auto;
+	}
+	h3 {
+		display: table-cell;
+		height: 300px;
+		vertical-align: middle;
+		background-color: rgba( $black, .4 );
+		font-size: 1.5rem;
+		@extend .m0;
+		@extend .p1;
+		@extend .text-center;
+		@extend .color-white;
+	}
+	.link-fp-cta {
+		@extend .hollow;
+	}
+}
+//========================  Service ========================================================================//
+.fp-contact {
+	label {
+		color: $white;
+	}
+	.wpcf7-submit {
+		@extend .button;
+		@extend .expanded;
+	}
+}

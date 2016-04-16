@@ -1,0 +1,14 @@
+[id^="no-"] {
+	@extend .pt2;
+	@extend .pb2;
+	h2 {
+		background-color: transparent;
+	}
+	background-color: $snow;
+	&:nth-child( 2n -1 ) {
+		background-color: $white;
+	}
+}
+.fp-service [id^="no-"] {
+	background-color: transparent !important;
+}

@@ -1,0 +1,12 @@
+.accordion-title {
+	font-size: 1rem;
+	color: $black;
+	transition: $mediumDuration;
+	.fa {
+		margin-right: 1rem;
+	}
+	&::before {
+		font-size: 2rem;
+		margin-top: -1rem;
+	}
+}

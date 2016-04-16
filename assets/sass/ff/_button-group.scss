@@ -1,0 +1,10 @@
+.button-group {
+	text-align: center;
+	.button {
+		display: inline-block;
+		float: none;
+	}
+	&.text-left {
+		text-align: left !important;
+	}
+}

@@ -1,0 +1,66 @@
+.card {
+	overflow: hidden;
+	margin-top: 0;
+	border-radius: 0;
+	&:hover {
+		@extend .b-shadow-1-half;
+	}
+	& > a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+	}
+	[class^="category-"] {
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: inline-block;
+		padding: 5px 10px;
+		z-index: 10;
+		background-color: $primary-color;
+		color: $white;
+		text-decoration: none;
+		@extend .b-shadow-1;
+		&:hover {
+			@extend .b-shadow-1-half;
+			text-decoration: none;
+		}
+	}
+	figure {
+		margin: 0;
+	}
+	.card-title {
+		font-family: $main-font;
+		color: $primary-color !important;
+	}
+	.card-content {
+		position: relative;
+	}
+	time {
+		font-size: 1rem;
+		padding: .5rem 1rem;
+	}
+	&.post-list {
+		.card-img {
+			@include breakpoint( medium ) {
+				float: left;
+			}
+			img {
+				@include breakpoint( medium ) {
+					width: 200px;
+				}
+			}
+		}
+		.card-title {
+			@include breakpoint( medium ) {
+				position: relative;
+				left: 1rem;
+				line-height: 1.4 !important;
+			}
+		}
+	}
+}
