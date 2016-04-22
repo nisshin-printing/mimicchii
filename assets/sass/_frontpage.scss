@@ -107,3 +107,14 @@
 		@extend .expanded;
 	}
 }
+//======================== Contact ========================================================================//
+.fp-contact {
+	a {
+		color: $dark-gray;
+		transition: $mediumDuration;
+		&:hover {
+			color: $white;
+			transition: $mediumDuration;
+		}
+	}
+}

@@ -16,7 +16,10 @@ function dtdsh_double_nav() {
 			'items_wrap' => '<ul class="%2$s">%3$s</ul>',
 			'walker' => new Side_Nav_Walker_Nav_Menu()
 		) );
-	echo '</nav>';
+	echo '
+		<h5 class="nav-title">認定代理店の証</h5>
+		<p><a href="https://www.google.com/partners/#a_profile;idtf=4021537698;" title="Google Partnersページを見る"><img src="', dtdsh_photon_img( '596', 'src' ), '" width="', dtdsh_photon_img( '596', 'width' ), '" height="', dtdsh_photon_img( '596', 'height' ), '" alt="Google認定のGoogle Partnersである証"></a></p>
+	</nav>';
 }
 endif;
 if ( ! function_exists( 'dtdsh_dynamic_inlining_scripts' ) ) :
