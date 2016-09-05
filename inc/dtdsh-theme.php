@@ -24,7 +24,7 @@ function dtdsh_theme() {
 	require_once( TFUNC . 'headfunc.php' );
 	require_once( TFUNC . 'footfunc.php' );
 	require_once( INC . 'dtdsh-func.php' );
-	require_once( INC . 'dtdsh-ajax.php' );
+	require_once( INC . 'dtdsh-metabox.php' );
 	if ( is_admin() ) {
 		require_once( INC . 'admin-init.php');
 	}
@@ -60,7 +60,7 @@ add_filter( 'wpcf7_load_js', '__return_false' );
 add_filter( 'wpcf7_load_css', '__return_false' );
 
 // ビジュアルエディタ用CSS
-add_editor_style( TCSS . 'editor-styles.css' );
+add_editor_style( TCSS . 'editor-style.css' );
 
 // HTML_Format
 if ( ! function_exists( 'dtdsh_html_format' ) ) :

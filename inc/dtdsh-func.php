@@ -1,6 +1,6 @@
 <?php
-function dtdsh_photon_img( $id, $case ) {
-	$get = wp_get_attachment_image_src( $id, 'full' );
+function dtdsh_photon_img( $id, $case, $size = 'full' ) {
+	$get = wp_get_attachment_image_src( $id, $size );
 	if ( 'src' == $case ) {
 		echo $get[0];
 	} elseif ( 'width' == $case ) {

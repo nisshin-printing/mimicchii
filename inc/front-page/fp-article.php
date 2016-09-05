@@ -4,7 +4,7 @@ $article_args = array(
 );
 $articles = new WP_Query( $article_args );
 ?>
-<section id="blog" class="fp-article" data-magellan-target="blog">
+<section class="fp-article">
 	<div class="row">
 		<div class="text-center">
 			<h2 class="color-primary">コラム</h2>

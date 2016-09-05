@@ -1,272 +1,252 @@
-// ============================== Top Marketing Bar ============================================================================= //
-.top-marketing-bar {
-	background-color: $snow;
-	p {
-		@extend .m0;
-		line-height: 50px;
-		font-size: .75rem;
-		color: $primary-color;
+// ============================== SP Header ============================================================================= //
+.header-main {
+	transition: transform .6s, opacity .3s;
+	text-align: center;
+}
+.header-main-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	transition: transform .3s cubic-bezier( .4, 0, .2, 1 );
+	&.is-unpinned {
+		transform: translateY( -100% );
 	}
-	.social-box {
-		@extend .text-right;
-		@extend .no-bullet;
-		@extend .m0;
+}
+.header-main-logo {
+	position: relative;
+	display: inline-block;
+	transition: all .3s cubic-bezier( .4, 0, .2, 1 );
+	height: 76px;
+	z-index: 3;
+	@include breakpoint( small only ) {
+		svg {
+			width: 160px;
+			height: 76px;
+			line-height: 76px;
+		}
+	}
+	@include breakpoint( medium ) {
+		height: 126px;
+		line-height: 126px;
+		svg {
+			height: 126px;
+			line-height: 126px;
+		}
+	}
+	@include breakpoint( large ) {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 11.25rem;
+		height: 50vh;
+		padding: 3.75rem;
+		svg {
+			width: 10rem;
+			height: 50vh;
+		}
+	}
+}
+.is-unpinned .header-main-logo {
+	@include breakpoint( large ) {
+		top: 6.25rem;
+	}
+}
+.header-main-nav-button {
+	@extend .hide-for-large;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	line-height: 76px;
+	z-index: 3;
+	transition: transform .4s;
+	-webkit-tap-highlight-color: transparent;
+	padding-left: 18px;
+	@include breakpoint( medium ) {
+		height: 126px;
+		line-height: 126px;
+	}
+	@include breakpoint( large ) {
+		height: 6.25rem;
+		line-height: 6.25rem;
+	}
+	button {
+		width: 40px;
+		height: 40px;
+		position: relative;
+		border-radius: $global-radius;
+		display: inline-block;
+		vertical-align: middle;
+		border: 1px solid;
+		@include breakpoint( medium ) {
+			width: 100px;
+			text-align: right;
+		}
+	}
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -1px;
+		margin-left: -11px;
+		display: block;
+		width: 22px;
+		height: 2px;
+		background-color: currentColor;
+		transition: background-color .4s steps( 1, end );
+		border-radius: $global-radius;
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 22px;
+			height: 2px;
+			background-color: currentColor;
+			top: -6px;
+			transition: transform .4s ,background-color .4s steps( 1, end );
+		}
+		&::after {
+			top: 6px;
+		}
+		@include breakpoint( medium ) {
+			left: 20%;
+		}
+	}
+	p {
+		@extend .show-for-medium;
+		margin: 0;
+		display: inline-block;
+		font-size: 12px;
+		transition: transform .3s cubic-bezier( .4, 0, .2, 1 ),
+			opacity .3s cubic-bezier( .4, 0, .2, 1 );
+		padding-right: 10%;
+	}
+}
+.has-nav-open .header-main-nav-button {
+	button {
+		transform: rotate( -360deg );
+		border-radius: 50%;
+		width: 40px;
+	}
+	span {
+		left: 50%;
+		&::before,
+		&::after {
+			width: 10px;
+		}
+		&::before {
+			transform: translate( -3px, 3px ) rotate( -45deg );
+		}
+		&::after {
+			transform: translate( -3px, -3px ) rotate( 45deg );
+		}
+	}
+	p {
+		display: none;
+	}
+}
+// ============================== Main Menu ============================================================================= //
+.nav-main-wrapper {
+	position: fixed;
+	top: 0;
+	left: -50%;
+	width: 50%;
+	height: 100vh;
+	padding: 0;
+	text-align: left;
+	font-size: 20px;
+	transition: transform .4s;
+	transition-timing-function: cubic-bezier( .4, 0, .2, 1 );
+	z-index: 2;
+	@include breakpoint( large ) {
+		position: static;
+		width: 100%;
+		height: auto;
+		font-size: 1rem;
+		padding: {
+			left: 11.25rem;
+			right: 11.25rem;
+		}
+	}
+}
+.nav-main {
+	margin: {
+		top: 100px;
+		bottom: 25px;
+	}
+	font-size: 20px;
+	z-index: 1;
+	@include breakpoint( medium ) {
+		margin: {
+			top: 8.75rem;
+			bottom: 3.75rem;
+		}
+	}
+	@include breakpoint( large ) {
+		margin: 0 auto;
+	}
+	.menu {
+		z-index: 1000;
+		@include breakpoint( medium down ) {
+			@include menu-direction( vertical );
+		}
 		li {
-			display: inline-block;
-			width: 50px;
-			height: 50px;
-			@extend .text-center;
+			display: block;
+			@include breakpoint( large ) {
+				display: inline-block;
+			}
 		}
 		a {
 			text-decoration: none;
-			&:hover .fa {
-				transform: rotateY(-360deg);
-			}
-			.fa {
-				display: block;
-				transition: $mediumDuration;
-				font-size: 1.3rem;
-				line-height: 50px;
-			}
-		}
-	}
-}
-// ============================== Top Bar ============================================================================= //
-.sticky-wrapper #sticky-topbar {
-	z-index: 100;
-}
-.is-sticky {
-	.top-bar {
-		background-color: $primary-color;
-	}
-	.title-logo {
-		display: block !important;
-		float: left;
-		line-height: 50px;
-		height: 50px;
-		margin-left: 1rem;
-		font-size: 1.3rem;
-		font-family: $main-font;
-	}
-}
-#sticky-topbar {
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	padding: 0;
-}
-.top-bar {
-	height: 50px;
-	line-height: 50px;
-	a {
-		text-decoration: none;
-		color: $white;
-	}
-	.title {
-		@extend .no-bullet;
-		@extend .m0;
-	}
-	.li-nav {
-		float: left;
-		height: 50px;
-		line-height: 50px;
-	}
-	#btn-nav {
-		@extend .button;
-		@extend .hollow;
-		color: $white;
-		border-color: $white;
-		padding: 8px 5px;
-		margin: auto auto auto 1rem;
-		.fa {
-			margin-right: .5rem;
-		}
-	}
-	.title-logo {
-		@extend .text-center;
-		display: none;
-	}
-	.menu {
-		@extend .text-center;
-		li {
-			display: inline-block;
-			&.active a::after,
-			&:hover a::after,
-			a.active::after {
-				width: 100%;
-			}
-		}
-		a {
-			background-color: transparent;
+			display: block;
 			position: relative;
-			padding: 0 1rem;
-			height: 50px;
-			line-height: 50px;
-			&::after {
-				content: "";
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				display: block;
-				height: 3px;
-				width: 0;
-				background-color: $white;
-				transition: $mediumDuration;
+			color: currentColor;
+			padding: 0 1.5625rem;
+			line-height: 40px;
+			@include breakpoint( medium ) {
+				padding: 0 1rem;
+				line-height: 56px;
+			}
+			@include breakpoint( large ) {
+				padding: 0 1.5625rem;
+				line-height: 11.125rem;
 			}
 		}
 	}
 }
-// ============================== Front Page Header & Page Header ============================================================================= //
-#header {
-	position: relative;
-	display: -webkit-box;
-	display: flex;
-	flex-align: center;
-	box-align: center;
-	align-items: center;
-	height: 400px;
-	background: #485563;
-	background: linear-gradient(to left, rgba( #485563, .8 ), rgba( #29323c, .8 ) ),
-				url(http://i2.wp.com/dtdsh.com/wp-content/uploads/2016/03/slide.png) no-repeat fixed center center;
-	background-size: cover;
-	.inner {
-		margin: 0 auto;
-		vertical-align: middle;
-		text-align: center;
-	}
-	hr {
-		width: 20px;
-		height: 3px;
-		background-color: $white;
-	}
-}
-// ============================== Navigation Side & SP ============================================================================= //
-.nav-side {
-	margin-top: 1rem;
-	margin-bottom: 2rem;
-	&#spNav {
-		@extend .m0;
-		@extend .p0;
-		@extend .b0;
-		width: 100%;
-		height: 100%;
-		height: 100vh;
-		max-height: 100vh;
-		max-width: none;
-		@include breakpoint( medium ) {
-			width: 50%;
-		}
-		@include breakpoint( large ) {
-			width: 33.3333%;
-		}
-		nav {
-			@extend .m1;
-		}
-	}
-	nav {
-		margin-top: 1rem;
-		background-color: $primary-color;
-	}
-	.nav-title {
-		font: {
-			size: 1rem;
-			weight: 500;
-		}
-		padding: {
-			top: 1.5rem;
-			left: .9rem;
-		}
-		margin: {
-			top: 1rem;
-			bottom: .5rem;
-		}
-		border-top: 1px solid $gainsboro;
-	}
-	.nav-cta {
-		padding-top: 1.5rem;
-		margin-top: 1rem;
-		margin-bottom: .5rem;
-		border-top: 1px solid $gainsboro;
-		display: block;
-		@extend .text-center;
-		img {
-			margin: 0 auto;
-		}
-	}
-	.menu {
-		margin: 0;
-		@extend .no-bullet;
-		a {
-			font-size: .85rem;
-			padding: .5rem 1rem;
-			color: $dark-gray;
-			&:hover {
-				background-color: rgba( $black, .05 );
-				color: $white;
-			}
-		}
-		.active > a {
-			background-color: rgba( $black, .05 );
-			color: $white;
-		}
-	}
-	li,
-	a {
-		transition: $mediumDuration;
-		text-decoration: none;
-	}
-	form {
-		width: 100%;
-		height: 58px;
-		position: relative;
-	}
-	.input-search {
-		width: 100%;
-		border: none !important;
-		border-radius: $global-radius;
-		vertical-align: middle;
-		color: #333;
-		font-size: 14px;
-		margin: 0;
-		padding: 6px 30px 6px 6px;
-		box-shadow: none;
-	}
-	.btn-search {
-		position: absolute;
-		right: 2px;
-		top: 2px;
-		margin: 0;
-		padding: 10px 7px;
-		background: none;
-		color: #555;
-		box-shadow: none;
-	}
-}
-.reveal {
-	z-index: 2147483647 !important;
-	overflow-y: auto;
-}
-.reveal-overlay {
-	z-index: 2147483640 !important;
-	cursor: pointer;
-	&::after {
-		content: '\f057';
-		font-family: FontAwesome;
-		display: inline;
+.nav-overlay {
+	@include breakpoint( medium down ) {
 		position: fixed;
-		top: 45%;
-		font-size: 41px;
-		color: rgba( 238, 238, 238, .65 );
-		z-index: 2147483645 !important;
-		left: 51%;
-		@include breakpoint( large ) {
-			left: 34%;
-		}
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba( #000, .5 );
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility, opacity;
+		transition-duration: 0s, .4s;
+		transition-delay: .4s, 0s;
+		transition-timing-function: cubic-bezier( .4, 0, .2, 1 );
+		z-index: 1;
 	}
 }
-// ============================== Breadcrumbs ( ! is_front_page() ) ============================================================================= //
-.breadcrumbs {
-	background-color: $snow;
-	padding: rem-calc(9 14);
+.has-nav-open {
+	overflow: hidden;
+	.nav-main-wrapper {
+		transform: translateX(100%);
+	}
+	.nav-overlay {
+		@include breakpoint( medium down ) {
+			visibility: visible;
+			opacity: 1;
+			transition-delay: 0s;
+		}
+	}
 }

@@ -1,15 +1,154 @@
+// Custom Reset CSS
 *, *::before, *::after { box-sizing: border-box; }
-img {
+img,svg {
 	width: auto;
 	max-width: 100%;
 	height: auto;
+	fill: currentColor;
 }
-.button {
+svg:not(:root) {
+	overflow: hidden;
+}
+.button,
+button {
 	font-family: $main-font;
 	font-weight: normal;
 	text-decoration: none;
+	outline: 0;
+}
+// Border-Radius
+.radius {
+	border-radius: $global-radius;
+}
+// Dotted hr
+hr.dotted {
+	border-style: dashed !important;
+	margin: 3em 0;
 }
 address { font-style: normal }
+::section {
+	background: rgba( 0, 0, 0, .5 );
+	color: #FFF;
+	text-shadow: none;
+}
+.u-background {
+	color: #222;
+	background-color: #FFF;
+}
+.u-background-accent {
+	background-color: $accent-color;
+}
+.u-foreground-accent {
+	color: #FFF;
+}
+//========================  Loading Effect ========================================================================//
+.loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50% );
+	z-index: 9999;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility, opacity;
+	transition-duration: 0s, .3s;
+	transition-delay: .3s, 0s;
+	overflow: visible;
+	padding-top: 3.75rem;
+	width: 3.75rem;
+	height: 0;
+}
+.loader-figure {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3.75rem;
+	height: 3.75rem;
+	border: 0 solid;
+	border-radius: 50%;
+	animation: loader-figure 1.15s infinite cubic-bezier( .215, .61, .355, 1 );
+}
+// ============================== Main ============================================================================= //
+#content-wrapper,
+footer,
+.c-row {
+	padding: {
+		top: 100px;
+		right: 25px;
+		left: 25px;
+	}
+	@include breakpoint( medium ) {
+		padding: {
+			top: 126px;
+			right: 3.75rem;
+			left: 3.75rem;
+		}
+	}
+	@include breakpoint( large ) {
+		padding: {
+			top: 13.75rem;
+			right: 11.25rem;
+			left: 11.25rem;
+		}
+	}
+}
+//========================  .call to action ========================================================================//
+.call-to-action {
+	position: relative;
+	display: table;
+	width: 100%;
+	min-height: 100vh;
+}
+.cta-container {
+	display: table-cell;
+	width: 100%;
+	vertical-align: middle;
+	@extend .text-center;
+}
+.action-link {
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: lowercase;
+	margin-bottom: .2rem;
+	letter-spacing: -.05em;
+	font-size: 40px;
+	@include breakpoint( medium ) {
+		font-size: 6.4rem;
+	}
+	@include breakpoint( large ) {
+		font-size: 8.7rem;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background-color: currentColor;
+		transition: .3s;
+	}
+	span {
+		display: inline-block;
+		transition: .6s;
+	}
+	&:hover {
+		&::after {
+			width: 100%;
+		}
+		span {
+			transform: rotateY( 360deg );
+			color: currentColor;
+			@for $i from 1 through 10 {
+				&:nth-of-type( #{$i} ) {
+					transition-delay: $i * .05s;
+				}
+			}
+		}
+	}
+}
+// ============================== Framework ============================================================================= //
 // CSS Mask
 .bg-mask-wrapper { position: relative; }
 .bg-mask {

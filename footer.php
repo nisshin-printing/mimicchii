@@ -1,17 +1,36 @@
-</div><!-- #content-wrapper -->
-<?php
-if ( ! is_front_page() ) :
-?>
-<div class="medium-3 medium-pull-9 column nav-side">
-	<?php dtdsh_double_nav(); ?>
-</div>
-<?php
-endif;
-?>
-<div id="spNav" class="reveal nav-side" data-reveal data-animation-in="slide-in-left" data-animation-out="slide-out-left">
-	<button class="btn-close button waves-effect expanded" data-close>閉じる</button>
-	<?php dtdsh_double_nav(); ?>
-</div>
+<section class="c-contact u-background-accent">
+	<div class="c-row">
+		<div class="c-contact_message">
+			<button class="c-contact_back js-contact-back" type="button" title="お問い合わせの種類に戻る">
+				<span class="c-contact_back_arrow">
+					<svg class="c-contact_back_icon" role="image"><use xlink:href="<?php echo TSVG, 'locomotive.svg#arrow-back'; ?>"></svg>
+				</span>
+			</button>
+			<div class="contact_textbox js-contact-text" id="contact-form-title" contenteditable="false"></div>
+		</div>
+		<div class="c-contact_wrapper">
+			<div class="c-contact_content" data-param="home" data-text="日進印刷株式会社です。<br>マーケティング知識を武器に売上向上に貢献します。"></div>
+			<div class="c-contact_content -menu js-contact" data-param="menu" data-text-type="greeting" data-text="何かお探しですか？" data-greeting-morning="おはようございます。<br>何かお探しですか？" data-greeting-afternoon="こんにちは。<br>何かお探しですか？" data-greeting-evening="こんばんは。<br>何かお探しですか？" data-greeting-night="もう寝る時間ですよ。<br>何かお探しですか？" data-success="メッセージが送信されました。">
+				<div class="medium-4 column">
+					<button class="c-contact_menu_item o-button -hover u-background-accent-reverse u-foreground-accent-reverse js-contact-step" type="button" data-page="project">
+						<span class="o-button_text">お仕事の依頼</span>
+					</button>
+				</div>
+				<div class="medium-4 column">
+					<button class="c-contact_menu_item o-button -hover u-background-accent-reverse u-foreground-accent-reverse js-contact-step" type="button" data-page="join">
+						<span class="o-button_text">入社・提携など</span>
+					</button>
+				</div>
+				<div class="medium-4 column">
+					<button class="c-contact_menu_item o-button -hover u-background-accent-reverse u-foreground-accent-reverse js-contact-step" type="button" data-page="message">
+						<span class="o-button_text">お問い合わせ</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</main><?php // #content-wrapper ?>
 <footer>
 	<div class="row">
 		<div class="column medium-4">
@@ -27,13 +46,13 @@ endif;
 		</div>
 		<div class="column medium-4 large-text-left">
 			<p class="footer-title"><i class="fa fa-building"></i>会社情報</p>
-			<p class="footer-title b0"><i class="fa fa-map-marker"></i>住所</p>
+			<p class="footer-title b0 m0"><i class="fa fa-map-marker"></i>住所</p>
 			<address class="ml1"><a href="https://goo.gl/maps/4P9aVPRdWE12" title="Googleマップを見る" target="_blank">〒733-0001<br>広島県広島市西区大芝一丁目<br>19-20　A2ビル3F（事務所）</a></address>
-			<p class="footer-title b0"><i class="fa fa-phone"></i>電話番号</p>
+			<p class="footer-title b0 m0"><i class="fa fa-phone"></i>電話番号</p>
 			<p class="ml1"><a href="tel:0822371611" title="電話する">(082) 237-1611</a></p>
-			<p class="footer-title b0"><i class="fa fa-fax"></i>FAX番号</p>
+			<p class="footer-title b0 m0"><i class="fa fa-fax"></i>FAX番号</p>
 			<p class="color-dark-gray ml1">(082) 237-1622</p>
-			<p class="footer-title b0"><i class="fa fa-envelope"></i>メール</p>
+			<p class="footer-title b0 m0"><i class="fa fa-envelope"></i>メール</p>
 			<p class="ml1"><a href="<?php echo get_page_link( '302' ); ?>">nisshin@dtdsh.com</a></p>
 		</div>
 		<div class="column medium-4">
@@ -46,7 +65,6 @@ endif;
 		</div>
 	</div>
 </footer>
-<div id="btn-fixed-actions"><a href="#PageTop" title="<?php echo DTDSH_SITENAME; ?>" class="btn-circle bg-indigo"><i class="fa fa-angle-up"></i></a></div>
 <?php
 dtdsh_dynamic_inlining_scripts();
 wp_footer();

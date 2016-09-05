@@ -10,6 +10,7 @@ define( 'INC', TPATH . 'inc' . DSEP );
 define( 'SURI', get_stylesheet_uri() );
 define( 'TASSETS', TURI . 'assets' . DSEP );
 define( 'TIMG', TURI . 'assets' . DSEP . 'img' . DSEP );
+define( 'TSVG', TURI . 'assets' . DSEP . 'svg' . DSEP );
 define( 'TCSS', TURI . 'assets' . DSEP . 'css' . DSEP );
 define( 'TJS', TURI . 'assets' . DSEP . 'js' . DSEP );
 define( 'TFRONT', INC . 'front-page' . DSEP );

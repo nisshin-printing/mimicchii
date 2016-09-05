@@ -19,8 +19,8 @@ echo '<section class="layout-' . $is_layout . '">',
 			'<div class="column article-body">';
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post();
-				if ( is_single( '01-faster-loading-web-sites' ) ) {
-					get_template_part( 'inc/templates/content' );
+				if ( is_page( 'public-relations' ) ) {
+					get_template_part( 'inc/templates/public-relations' );
 				} else {
 					get_template_part( 'inc/templates/content' );
 				}

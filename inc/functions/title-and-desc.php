@@ -8,41 +8,41 @@ function dtdsh_create_title() {
 	$head_description = '';
 	if ( ! is_front_page() && ! is_home() ) {
 		if ( is_search() ) {
-			$head_title =  '「' . get_search_query() . '」で検索した結果 | 広島市のWEB制作会社 - 日進印刷';
+			$head_title =  '「' . get_search_query() . '」で検索した結果 | 広島市のホームページ制作会社 - 日進印刷';
 			$head_description = '「' . get_search_query() . '」で検索した結果の一覧ページです。探しているのはコンテンツですか？それとも「頼れる」広島市のWebマーケティング会社ですか？PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
 		} elseif ( is_archive() ) {
 			if ( is_day() ) {
-				$head_title = 'アーカイブ : ' . get_the_date( 'Y年m月d日' ) . 'の一覧 | 広島市のWEB制作会社 - 日進印刷</title>';
-				$head_description = get_the_date( 'Y年m月d日' ) . 'の記事一覧ページです。探しているのは記事ですか？それとも「頼れる」広島市のWebマーケティング会社ですか？PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+				$head_title = 'アーカイブ : ' . get_the_date( 'Y年m月d日' ) . 'の一覧 | 広島市のホームページ制作会社 - 日進印刷</title>';
+				$head_description = get_the_date( 'Y年m月d日' ) . 'の記事一覧ページです。豊富なマーケティング知識と緻密なアクセス分析を武器に、売上向上を目指すコンサルティング企業です。';
 			} elseif ( is_month() ) {
-				$head_title = 'アーカイブ : ' . get_the_date( 'Y年m月' ) . 'の一覧 | 広島市のWEB制作会社 - 日進印刷</title>';
-				$head_description = get_the_date( 'Y年m月' ) . 'の記事一覧ページです。探しているのは記事ですか？それとも「頼れる」広島市のWebマーケティング会社ですか？PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+				$head_title = 'アーカイブ : ' . get_the_date( 'Y年m月' ) . 'の一覧 | 広島市のホームページ制作会社 - 日進印刷</title>';
+				$head_description = get_the_date( 'Y年m月' ) . 'の記事一覧ページです。豊富なマーケティング知識と緻密なアクセス分析を武器に、売上向上を目指すコンサルティング企業です。';
 			} elseif ( is_year() ) {
-				$head_title = 'アーカイブ : ' . get_the_date( 'Y年' ) . 'の一覧 | 広島市のWEB制作会社 - 日進印刷</title>';
-				$head_description = get_the_date( 'Y年' ) . 'の記事一覧ページです。探しているのは記事ですか？それとも「頼れる」広島市のWebマーケティング会社ですか？PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+				$head_title = 'アーカイブ : ' . get_the_date( 'Y年' ) . 'の一覧 | 広島市のホームページ制作会社 - 日進印刷</title>';
+				$head_description = get_the_date( 'Y年' ) . 'の記事一覧ページです。豊富なマーケティング知識と緻密なアクセス分析を武器に、売上向上を目指すコンサルティング企業です。';
 			} elseif ( is_tag() ) {
-				$head_title = 'タグ : ' . single_term_title( '', false ) . 'の一覧 | 広島市のWEB制作会社 - 日進印刷</title>';
-				$head_description = 'タグ : ' . single_term_title( '', false ) . 'の記事一覧ページです。探しているのは記事ですか？それとも「頼れる」広島市のWebマーケティング会社ですか？PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+				$head_title = 'タグ : ' . single_term_title( '', false ) . 'の一覧 | 広島市のホームページ制作会社 - 日進印刷</title>';
+				$head_description = 'タグ : ' . single_term_title( '', false ) . 'の記事一覧ページです。豊富なマーケティング知識と緻密なアクセス分析を武器に、売上向上を目指すコンサルティング企業です。';
 			} elseif ( is_category() || is_tax() ) {
-				$head_title = 'カテゴリー : ' . single_term_title( '', false ) . 'の一覧 | 広島市のWEB制作会社 - 日進印刷</title>';
-				$head_description = 'カテゴリ : ' . single_term_title( '', false ) . 'の記事一覧ページです。探しているのは記事ですか？それとも「頼れる」広島市のWebマーケティング会社ですか？PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+				$head_title = 'カテゴリー : ' . single_term_title( '', false ) . 'の一覧 | 広島市のホームページ制作会社 - 日進印刷</title>';
+				$head_description = 'カテゴリ : ' . single_term_title( '', false ) . 'の記事一覧ページです。豊富なマーケティング知識と緻密なアクセス分析を武器に、売上向上を目指すコンサルティング企業です。';
 			} else {
-				$head_title = post_type_archive_title( '', false ) . 'の一覧 | 広島市のWEB制作会社 - 日進印刷</title>';
-				$head_description = post_type_archive_title( '', false ) . 'の記事一覧ページです。探しているのは記事ですか？それとも「頼れる」広島市のWebマーケティング会社ですか？PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+				$head_title = post_type_archive_title( '', false ) . 'の一覧 | 広島市のホームページ制作会社 - 日進印刷</title>';
+				$head_description = post_type_archive_title( '', false ) . 'の記事一覧ページです。豊富なマーケティング知識と緻密なアクセス分析を武器に、売上向上を目指すコンサルティング企業です。';
 			}
 		} elseif ( is_single() || is_page() ) {
-			$head_title = single_post_title( '', false ) . ' | 広島市のWEB制作会社 - 日進印刷</title>';
+			$head_title = single_post_title( '', false ) . ' | 広島市のホームページ制作会社 - 日進印刷</title>';
 			$head_description = get_the_excerpt();
 		} elseif ( is_404() ) {
-			$head_title = 'ページが見つかりません！ | 広島市のWEB制作会社 - 日進印刷</title>';
-			$head_description = 'ページが見つかりません！探しているのは記事ですか？それとも「頼れる」広島市のWebマーケティング会社ですか？PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+			$head_title = 'ページが見つかりません！ | 広島市のホームページ制作会社 - 日進印刷</title>';
+			$head_description = 'ページが見つかりません！豊富なマーケティング知識と緻密なアクセス分析を武器に、売上向上を目指すコンサルティング企業です。';
 		} else {
-			$head_title = '日進印刷株式会社 - 広島市のWEB制作会社';
-			$head_description = '探しているのは「頼れる」広島市のWebマーケティング会社。PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+			$head_title = '広島市のホームページ制作会社 - 日進印刷株式会社';
+			$head_description = '広島市のホームページ制作会社、日進印刷。1928年から蓄え続けたマーケティング知識を活用し、緻密なアクセス分析を武器に、売上向上に貢献するコンサルティング企業です。';
 		}
 	} else {
-		$head_title = '日進印刷株式会社 - 広島市のWEB制作会社';
-		$head_description = '探しているのは「頼れる」広島市のWebマーケティング会社。PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+		$head_title = '広島市のホームページ制作会社 - 日進印刷株式会社';
+		$head_description = '広島市のホームページ制作会社、日進印刷。1928年から蓄え続けたマーケティング知識を活用し、緻密なアクセス分析を武器に、売上向上に貢献するコンサルティング企業です。';
 	}
 	$ret = '<title>' . $head_title . '</title><meta name="description" content="' . $head_description .'">';
 	return $ret;
@@ -61,7 +61,7 @@ function dtdsh_load_ogp() {
 	global $post;
 	$url = '';
 	$title = wp_get_document_title();
-	$site_name = DTDSH_SITENAME . ' - 広島市のWEB制作会社';
+	$site_name = DTDSH_SITENAME . ' - 広島市のホームページ制作会社';
 	if ( is_singular() ) {
 		$cont = $post->post_content;
 		$preg = '/<img.*?src=(["\'])(.+?)\1.*?>i/';
@@ -85,7 +85,7 @@ function dtdsh_load_ogp() {
 			$img = TURI . '/assets/img/og.png';
 		}
 	}
-	$desc = '探しているのは「頼れる」広島市のWebマーケティング会社。PageSpeedとYSlowのダブルA評価で速い！Web・印刷・広報・経理・経営など会社のコアを支える会社です。';
+	$desc = '広島市のホームページ制作会社、日進印刷。1928年から蓄え続けたマーケティング知識を活用し、緻密なアクセス分析を武器に、売上向上に貢献するコンサルティング企業です。';
 ?>
 <meta property="og:type" content="<?php echo ( is_singular() ? 'article' : 'website' ); ?>">
 <meta property="og:url" content="<?php echo $url; ?>">

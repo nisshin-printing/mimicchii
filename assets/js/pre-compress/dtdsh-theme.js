@@ -1,19 +1,50 @@
-jQuery(document).ready(function($) {
-	var adminBar = ( document.getElementById('wpadminbar') != null ) ? $('#wpadminbar').height() : 0,
-		mainNav = ( document.getElementById('sticky-topbar') != null ) ? $('#sticky-topbar').height() : 0,
-		actionsBtn = $('#btn-fixed-actions'),
-		headerHeight = parseInt(adminBar) + parseInt(mainNav);
 // ============================== Foundation 6 ============================================================================= //
-	// Default Settings
-	Foundation.Accordion.defaults.allowAllClosed = true;
-	Foundation.Magellan.defaults.barOffset = headerHeight - 27;
-	// Foundation Init
 	$(document).foundation();
-// ============================== Sticky Nav ============================================================================= //
-	$('#sticky-topbar').sticky({
-		topSpacing: adminBar,
-		getWidthFrom: 'header'
+// ============================== svg4everybody.min.js Initial ============================================================================= //
+	svg4everybody();
+// ============================== Full Screen Form Effects ============================================================================= //
+	$('#js-contact-open').click(function(event) {
+		$('body').toggleClass('has-contact-open');
+		$('#header-main .js-headroom').removeClass('is-pinned').addClass('is-unpinned');
 	});
+// ============================== Main Nav Effects ============================================================================= //
+	$('#js-nav-main-button').click(function() {
+		$('body').toggleClass('has-nav-open');
+	});
+	// Headroom
+	$('#header-main .js-headroom').headroom({
+		'classes': {
+			initial: 'js-headroom',
+			pinned: 'is-pinned',
+			unpinned: 'is-unpinned',
+			top: 'is-top',
+			notTop: 'is-not-top'
+		}
+	});
+// ============================== Block hover Effects ============================================================================= //
+	$('.js-swap-text').hover(
+		function() {
+			var $this = $(this);
+			$this.removeClass('is-out').addClass('is-in').addClass('is-swapping');
+			swapText( $this, 'hover-text' );
+		},
+		function() {
+			var $this = $(this);
+			$this.addClass('is-out').removeClass('is-in').removeClass('is-swapping');
+			swapText( $this, 'text' );
+		}
+	);
+	function swapText( ele, changeText ) {
+		var $time = 400;
+		ele.find('.js-swap-line').each(function() {
+			var $this = $(this);
+			setTimeout(function() {
+				var $text = $this.data( changeText );
+				$this.html( $text );
+			}, $time );
+			$time += 100;
+		});
+	}
 // ============================== Page Up Effects ============================================================================= //
 	$(window).scroll(function() {
 		if ($(this).scrollTop() > 200) {
@@ -43,4 +74,3 @@ jQuery(document).ready(function($) {
 		});
 	};
 });
-// ============================== 正規表現チェッカー ============================================================================= //

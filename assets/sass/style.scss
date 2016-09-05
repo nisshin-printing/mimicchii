@@ -43,13 +43,16 @@ $font: 'assets/font/';
 @include foundation-top-bar;
 @include foundation-visibility-classes;
 @include foundation-float-classes;
-@import 'foundation/motion-ui';
 
 @import 'mixin';
+@import 'framework/uiGradients';
+@import 'animate';
 @import 'framework/waves';
 @import 'framework/cards';
 @import 'framework/slick-slider';
 @import 'framework/valign-column';
+@import 'framework/tables';
+@import 'framework/fullscreen-form';
 
 // Add Styles for Frameworks
 @import 'ff/accordion';
@@ -73,6 +76,7 @@ $font: 'assets/font/';
 
 // Styles
 @import 'header';
+@import 'breadcrumbs';
 @import 'footer';
 // Front Page
 @import 'frontpage';

@@ -44,6 +44,10 @@
 			margin-right: 1rem;
 		}
 	}
+	.sub-title {
+		color: #777;
+		font-size: 1.125em;
+	}
 	h3 {
 		border-left: 5px solid #FFCE9E;
 		padding-left: rem-calc(18);
@@ -68,6 +72,21 @@
 	}
 	.card.bg-mask-wrapper {
 		padding: 0;
+	}
+}
+// ============================== .layout-page only ============================================================================= //
+.layout-page .article-body {
+	h2 {
+		@extend .text-center;
+		background: none;
+	}
+	.sub-title {
+		@extend .text-center;
+	}
+	h3 {
+		@extend .text-center;
+		@extend .b0;
+		@extend .p0;
 	}
 }
 // ============================== Pagination for Next / Prev POST ============================================================================= //
@@ -108,5 +127,13 @@
 				background-color: nth($button-color, $index_key);
 			}
 		}
+	}
+}
+// ============================== Google Maps Embed ============================================================================= //
+.gm-wrapper {
+	height: 300px;
+	@extend .p0;
+	iframe {
+		height: 300px;
 	}
 }

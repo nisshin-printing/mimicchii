@@ -1,40 +1,175 @@
 //========================  Global ========================================================================//
-[class^="fp-"] {
-	padding: {
-		top: 2rem;
-		bottom: 2rem;
-	}
-	&:nth-child( 2n + 2 ) {
-		background-color: $snow;
-	}
-	h2 {
-		text-align: center;
-		margin-bottom: 1rem;
-	}
-	hr {
-		width: 20px;
-		height: 3px;
-		background-color: $white;
-	}
-}
-.link-fp-cta {
-	@extend .button;
-	@extend .expanded;
-	@extend .column;
-	@extend .mt1;
-}
-//========================  News ========================================================================//
-.fp-news {
-	.news-date {
-		@include breakpoint( medium ) {
-			text-align: right;
+[class^=block-grid-] {
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+	font-size: 1rem;
+	padding-left: 0;
+	background-color: $snow;
+	&.block-grid-half {
+		@include breakpoint( 1000px ) {
+			width: 50%;
 		}
 	}
-	.link-fp-cta {
-		@extend .hollow;
+	.c-block {
+		display: block;
+		height: 300px;
+		padding: 25px;
+		text-decoration: none;
+		z-index: 1;
+		@include breakpoint( medium ) {
+			height: 35rem;
+			padding: 3.75rem;
+		}
+		@include breakpoint( large ) {
+			height: 31.25rem;
+		}
+		&.-link {
+			position: relative;
+			overflow: hidden;
+			transition: .3s linear;
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				width: 140%;
+				height: 100%;
+				top: 0;
+				left: 10%;
+				background-color: #FFF;
+				transform: translateX( -120% ) skewX( 15deg );
+				transition: left .2s ease-in-out;
+				opacity: .1;
+			}
+			&.-alt::after {
+				background-color: #000;
+			}
+			&:hover {
+				z-index: 200;
+				box-shadow:
+					0 0 20px 0 rgba(#000, .2),
+					0 5px 5px 0 rgba( #000, .24);
+				&::after {
+					left: 150%;
+				}
+				.block-arrow {
+					animation: shake 2s infinite ease-in-out;
+				}
+			}
+		}
+		&.-image {
+			background: {
+				position: center;
+				size: cover;
+				repeat: no-repeat;
+			}
+		}
+		&.-contain {
+			background-size: contain;
+		}
+		&.-right {
+			background-position: center right;
+		}
 	}
-	a {
-		color: $white;
+	article {
+		position: relative;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		&.about-box {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+		}
+	}
+	.block-category {
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 0;
+		font-size: 1rem;
+		padding-bottom: .75rem;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			border-bottom: 2px solid;
+			transform-origin: center left;
+			transition: transform .3s cubic-bezier( .4, 0, .2, 1 );
+		}
+	}
+	.block-title {
+		margin: 0;
+		font: {
+			size: 40px;
+			weight: 700;
+		}
+		line-height: 1;
+		max-width: 34rem;
+		span {
+			display: block;
+		}
+		@include breakpoint( 1000px ) {
+			font-size: 3.25rem;
+		}
+		@include breakpoint( 1440px ) {
+			font-size: 3.75rem;
+		}
+		&.-big {
+			@include breakpoint( 1000px ) {
+				font-size: 4.5rem;
+			}
+			@include breakpoint( 1440px ) {
+				font-size: 5rem;
+			}
+		}
+	}
+	.js-swap-box {
+		display: block;
+		overflow: hidden;
+		line-height: $global-lineheight;
+	}
+	.about-line {
+		display: block;
+	}
+	.block-description {
+		@extend .show-for-medium;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		max-width: 26.25rem;
+		line-height: 1.2;
+		margin-right: 5rem;
+		p {
+			@extend .m0;
+		}
+	}
+	.block-arrow {
+		position: absolute;
+		display: inline-block;
+		transition: transform .3s cubic-bezier( .4, 0, .2, 1 );
+		width: 30px;
+		height: 30px;
+		bottom: 0;
+		@include breakpoint( small only ) {
+			left: 0;
+		}
+		@include breakpoint( medium ) {
+			right: 0;
+		}
+		svg {
+			width: 30px;
+			height: 30px;
+		}
+	}
+	// Block Text
+	&.block-text {
+		.block-title,
+		.block-description {
+			max-width: none;
+		}
 	}
 }
 //========================  Featured ========================================================================//
@@ -92,9 +227,6 @@
 		@extend .p1;
 		@extend .text-center;
 		@extend .color-white;
-	}
-	.link-fp-cta {
-		@extend .hollow;
 	}
 }
 //========================  Service ========================================================================//

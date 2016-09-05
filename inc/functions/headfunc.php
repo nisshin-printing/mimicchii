@@ -8,6 +8,11 @@ add_action( 'template_redirect', 'dtdsh_get_header', 99 );
 endif;
 
 //========================  Header周り ========================================================================//
+function dtdsh_header_class() {
+	if ( is_page( 'about' ) ) {
+		echo 'bg-deep-space';
+	}
+}
 if ( ! function_exists( 'dtdsh_dynamic_inlining_style' ) ) :
 function dtdsh_dynamic_inlining_style() {
 	echo '<link rel=stylesheet href="' . SURI . '">';
@@ -122,15 +127,13 @@ function dtdsh_scope_nav() {
 if ( ! function_exists( 'dtdsh_header_title' ) ) :
 function dtdsh_header_title() {
 	$title = '';
-	$desc  = '日進印刷はマーケティング・WEB・アプリ・印刷など、広報のすべてをサポートします。';
+	$desc  = '';
 	if ( ! is_front_page() ) {
 		global $wp_query, $post;
 		$curquer = $wp_query->get_queried_object();
 		if ( is_search() ) {
 			$title = '「' . get_search_query() . '」' . 'で検索した結果';
-		} elseif ( is_category( 'faster-web' ) ) {
-			$title = 'Webサイト高速化';
-			$desc = '<a class="link-external color-white" href="https://gtmetrix.com/reports/dtdsh.com/ssDXOnda" target="_blank" title="GTmetrixで見る">ダブルA評価</a>である「日進印刷」の知見・ノウハウを大公開！';
+			$desc = '探しものが見つからないときは、左メニューのサイト内検索か<a href="' . get_page_uri( 599 ) . '" title="サイトマップ">サイトマップ</a>へどうぞ。';
 		} elseif ( is_archive() ) {
 			if ( is_day() ) {
 				$title = 'アーカイブ : ' . get_the_date( 'Y年m月d日' );
@@ -147,20 +150,31 @@ function dtdsh_header_title() {
 			}
 		} elseif ( is_author() ) {
 			$title = single_cat_title( '', false );
+			$desc = '';
 		} elseif ( is_page() ) {
 			$title = get_the_title( $post->ID );
+			$desc = '';
 		} elseif ( is_single() ) {
 			$title = ( get_post_type( $post->ID ) == 'post' ) ? 'コラム' : get_post_type_object( get_post_type() )->label;
+			$desc = '';
 		} elseif ( is_404() ) {
 			$title = __( 'ページが見つかりませんでした！', 'dtdsh' );
+			$desc = '';
 		} elseif ( is_home() ) {
 			$title = __( 'コラム', 'dtdsh' );
+			$desc = '';
 		} else {
 			$title = DTDSH_SITENAME;
 		}
-		echo '<h1>', $title, '</h1>', '<hr>', '<p>', $desc, '</p>';
+		if ( $title ) {
+			echo '<h1 class="color-white">', $title, '</h1>';
+		}
+		if ( $desc ) {
+			echo '<hr>', '<p class="color-white">', $desc, '</p>';
+		}
 	} else {
-		echo '<h1>', DTDSH_SITENAME, '</h1>', '<hr>', '<p>', $desc, '</p>';
+		echo '<h1 class="color-white">', DTDSH_SITENAME, '</h1>';
+		echo '<hr>', '<p class="color-white"><strong>日進印刷</strong>は1928年から続く広告・広報コンサルティング企業です。<br>マーケティング・WEB・アプリ・印刷など広報すべてのコンサルティングを通じて、経営戦略を迅速に具現化する方法を変えます。</p>';
 	}
 }
 endif;

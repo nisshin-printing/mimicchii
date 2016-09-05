@@ -1,0 +1,10 @@
+.breadcrumbs {
+	a {
+		transition: $mediumDuration;
+		&:hover {
+			color: $primary-color;
+			text-decoration: none;
+			transition: $mediumDuration;
+		}
+	}
+}

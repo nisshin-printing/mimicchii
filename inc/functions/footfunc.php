@@ -42,9 +42,9 @@ function doOnload() {
 window.onload = doOnload;
 function downloadComponents() {
 	document.cookie = "CA=1";
-	downloadJS("//dtdsh.dev/wp-content/themes/dtdsh/assets/js/dtdsh-app.min.js");
-	downloadJS("//dtdsh.dev/wp-content/themes/dtdsh/assets/js/dtdsh-theme.min.js");
-	downloadCSS("//dtdsh.dev/wp-content/themes/dtdsh/style.css");
+	downloadJS("//dtdsh.com/wp-content/themes/dtdsh/assets/js/dtdsh-app.min.js");
+	downloadJS("//dtdsh.com/wp-content/themes/dtdsh/assets/js/dtdsh-theme.min.js");
+	downloadCSS("//dtdsh.com/wp-content/themes/dtdsh/style.css");
 }
 function downloadJS(url) {
 	var elem = document.createElement("script");
