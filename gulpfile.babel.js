@@ -11,9 +11,11 @@ let tasks = require('./gulp/load'),
  * 監視タスク
  */
 gulp.task('watch', () => {
-	gulp.watch(config.path.ejs.watch, ['ejs']);
-	gulp.watch(config.path.html.src, ['html']);
+	gulp.watch(config.path.php.watch, ['reload']);
 	gulp.watch(config.path.style.watch, ['style']);
+	gulp.watch(config.path.js.watch, ['js']);
+	gulp.watch(config.path.svg.watch, ['svg']);
+	gulp.watch(config.path.img.watch, ['img']);
 	gulp.watch(config.path.es6.src, ['babel']);
 	
 	var copyWatches = [];

@@ -3,7 +3,7 @@
 * 一括読み込みタスク
 * 指定されたディレクトリ以下のスクリプトをrequireする
 */
-let fs = require('fs'),
+let fs = require('gracefull-fs'),
 	path = require('path');
 
 let files = fs.readdirSync(__dirname) || {},
