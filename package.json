@@ -1,0 +1,20 @@
+{
+  "name": "dtdsh",
+  "version": "1.0.0",
+  "description": "日進印刷株式会社のWordPressテーマ",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nisshin-printing/dtdsh.git"
+  },
+  "keywords": [],
+  "author": "Kazuki Fukuda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nisshin-printing/dtdsh/issues"
+  },
+  "homepage": "https://dtdsh.com/"
+}
