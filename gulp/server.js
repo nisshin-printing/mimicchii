@@ -3,22 +3,15 @@
  * サーバ起動タスク
  */
 let gulp = require('gulp'),
-	merge = require('merge'),
-	rewrite = require('connect-modrewrite'),
 	config = require('../config'),
 	$ = require('./plugins');
 
 gulp.task('server', () => {
-	let options = merge(config.server, {
+	$.browser({
 		server: {
-			baseDir: config.dist,
-		},
-		notify: false
+			proxy: config.server.proxy
+		}
 	});
-	if (options.proxy) {
-		delete options.server;
-	}
-	return $.browser(options);
 });
 gulp.task('reload', () => {
 	$.browser.reload();

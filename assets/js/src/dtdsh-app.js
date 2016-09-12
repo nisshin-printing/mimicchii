@@ -1,10 +1,10 @@
 const $ = jQuery;
 // ============================== Foundation 6 ============================================================================= //
-require('node_modules/foundation-sites/dist/foundation.js');
+require('../../../node_modules/foundation-sites/dist/foundation.js');
 $(document).foundation();
 // ============================== svg4everybody.min.js Initial ============================================================================= //
 // svg4everybody
-require('node_modules/svg4everybody/dist/svg4everybody.js');
+require('../../../node_modules/svg4everybody/dist/svg4everybody.js');
 svg4everybody();
 // ============================== Full Screen Form Effects ============================================================================= //
 $('#js-contact-open').click(function (event) {

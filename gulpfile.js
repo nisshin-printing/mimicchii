@@ -13,19 +13,9 @@ let tasks = require('./gulp/load'),
 gulp.task('watch', () => {
 	gulp.watch(config.path.php.watch, ['reload']);
 	gulp.watch(config.path.style.watch, ['style']);
-	gulp.watch(config.path.js.watch, ['js']);
+	gulp.watch(config.path.js.watch, ['webpack']);
 	gulp.watch(config.path.svg.watch, ['svg']);
 	gulp.watch(config.path.img.watch, ['img']);
-	gulp.watch(config.path.es6.src, ['babel']);
-	
-	var copyWatches = [];
-	// 複製タスクはループで回して監視対象とする
-	if (config.path.copy) {
-		config.path.copy.forEach((src) => {
-			copyWatches.push(src.from);
-		});
-		gulp.watch(copyWatches, ['copy']);
-	}
 });
 
 /**
@@ -46,7 +36,7 @@ gulp.task('production', (callback) => {
 /**
  * default タスク
  */
-var defaultTasks = ['server','watch'];
+var defaultTasks = ['server','watch', 'webpack'];
 if (config.autoTest) {
 	defaultTasks.push('watchTest');
 }

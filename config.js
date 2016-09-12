@@ -13,7 +13,7 @@ module.exports = {
 			sourcemap: true,
 			souceComments: 'normal',
 			includePaths: [
-				'src/sass/',
+				'assets/sass/',
 				'node_modules/foundation-sites/scss'
 			]
 		},
@@ -26,64 +26,38 @@ module.exports = {
 		},
 		soucemaps: './maps'
 	},
-	htmlhint: '.htmlhintrc',
 	styleguide: {
 		css: '../../css/style.css',
-		script: '../../js/app.js',
+		script: '../../js/dtdsh-app.js',
 		out: 'public/styleguide',
 		clean: true
 	},
 	server: {
-		ghostMode: {
-			clicks: false,
-			location: false,
-			forms: false,
-			scroll: false
-		}
+		src: '**/*',
+		url: 'dtdsh.dev/'
 	},
 	path: {
-		html: {
-			src: 'public/**/*.html'
+		php: {
+			src: '**/*.scss'
 		},
 		style: {
-			src: ['src/sass/**/*.scss', '!src/sass/**/_*.scss'],
-			watch: ['src/sass/**/*.scss'],
-			dest: 'public/css'
-		},
-		ejs: {
-			src: ['src/view/**/*.ejs', '!src/view/**/_*.ejs'],
-			watch: ['src/view/**/*.ejs'],
-			dest: 'public'
+			src: ['assets/sass/**/*.scss', '!assets/sass/**/_*.scss'],
+			watch: ['assets/sass/**/*.scss'],
+			dest: 'assets/css'
 		},
 		svg: {
-			src: 'src/svg/icon/*.svg',
-			watch: ['src/svg/*'],
-			dest: 'src/svg',
-		},
-		es6: {
-			src: 'src/js/**/*.es6',
-			dest: 'src/js'
+			src: 'assets/svg/icon/*.svg',
+			watch: ['assets/svg/*'],
+			dest: 'assets/svg',
 		},
 		js: {
-			src: ['src/js/**/*.js'],
-			watch: ['src/js/**/*.js'],
-			dest: 'public/js'
+			src: ['assets/js/**/*.js'],
+			watch: ['assets/js/**/*.js'],
+			dest: 'assets/js'
 		},
-		test: {
-			src: [
-				'public/js/*.js',
-				'node_modules/power-assert/build/power-assert.js',
-				'node_modules/sinon/pkg/sinon.js',
-				'src/test/**/*.js'
-			]
-		},
-		copy: [{
-			from: 'src/lib/**/*',
-			to: 'public/lib'
-		},
-		{
-			from: 'src/images/**/*',
-			to: 'public/img'
-		}]
+		image: {
+			src: 'assets/img/src',
+			dest: 'assets/img/'
+		}
 	}
 };
