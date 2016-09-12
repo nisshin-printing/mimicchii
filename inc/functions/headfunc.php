@@ -15,7 +15,7 @@ function dtdsh_header_class() {
 }
 if ( ! function_exists( 'dtdsh_dynamic_inlining_style' ) ) :
 function dtdsh_dynamic_inlining_style() {
-	echo '<link rel=stylesheet href="' . SURI . '">';
+	echo '<link rel=stylesheet href="', TCSS, 'style.css">';
 }
 endif;
 if ( ! function_exists( 'dtdsh_header' ) ) :
