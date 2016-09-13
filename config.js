@@ -49,9 +49,14 @@ module.exports = {
 			watch: ['assets/svg/*'],
 			dest: 'assets/svg',
 		},
-		js: {
-			src: ['assets/js/**/*.js'],
-			watch: ['assets/js/**/*.js'],
+		preJs: {
+			src: ['assets/js/pre-compress/**/*.js'],
+			watch: ['assets/js/pre-compress/**/*.js'],
+			dest: 'assets/js'
+		},
+		srcJs: {
+			src: ['assets/js/src/**/*.js'],
+			watch: ['assets/js/src/**/*.js'],
 			dest: 'assets/js'
 		},
 		image: {
