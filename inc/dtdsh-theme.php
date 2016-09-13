@@ -19,10 +19,16 @@
  *
  *
  */
+
+/*
+ * Functionsファイル各種を読み込み
+ */
 if ( ! function_exists( 'dtdsh_theme' ) ) :
 function dtdsh_theme() {
 	require_once( TFUNC . 'headfunc.php' );
 	require_once( TFUNC . 'footfunc.php' );
+	require_once( TFUNC . 'breadcrumb.php' );
+	require_once( TFUNC . 'rich-snippet.php' );
 	require_once( INC . 'dtdsh-func.php' );
 	require_once( INC . 'dtdsh-metabox.php' );
 	if ( is_admin() ) {
@@ -32,12 +38,46 @@ function dtdsh_theme() {
 add_action( 'after_setup_theme', 'dtdsh_theme' );
 endif;
 
-if ( ! function_exists( 'dtdshtheme_scripts' ) ) :
+/*
+ * JSファイル
+ */
 function dtdshtheme_scripts() {
-	wp_deregister_script( 'jquery' );
+	// Jetpackの不要JSを削除
+	wp_deregister_script( 'devicepx' );
+	wp_deregister_script( 'devicepx-jetpack' );
+	// Contact Form 7のCSSは不要
+	add_filter( 'wpcf7_load_js', '__return_false' );
+	// JS登録
+	wp_register_script( 'theme-app', TJS . 'app.min.js', array( 'jquery' ), NULL, true );
+	wp_register_script( 'google-map', '//maps.googleapis.com/maps/api/js?key=AIzaSyAN4kMQJOMnCR-Y0GR8QylbjAZiHLGm2UE', array(), NULL, true );
+	// 発行
+	wp_enqueue_script( 'theme-app' );
+	if ( is_page( '11111' ) ) {
+		wp_enqueue_script( 'google-map' );
+	}
+	if ( function_exists( 'wpcf7_enqueue_scripts' ) && is_page( '11111' ) ) {
+		wpcf7_enqueue_scripts();
+	}
 }
-add_action( 'wp_enqueue_scripts', 'dtdshtheme_scripts', 0 );
-endif;
+add_action( 'wp_enqueue_scripts', 'dtdshtheme_scripts' );
+
+/*
+ * CSSファイル
+ */
+function dtdshtheme_styles() {
+	// Contact Form 7のCSSは不要
+	add_filter( 'wpcf7_load_css', '__return_false' );
+	// JetPackは不要
+	add_filter( 'jetpack_implode_frontend_css', '__return_false' );
+	// CSS登録
+	wp_register_style( 'theme-style', TCSS . 'style.css', array(), NULL, false );
+	// CSS発行
+	wp_enqueue_style( 'theme-style' );
+}
+add_action( 'wp_enqueue_scripts', 'dtdshtheme_styles' );
+/*
+ * Favicons
+ */
 if ( ! function_exists( 'dtdsh_favicons' ) ) :
 function dtdsh_favicons() {
 	$favicons_default = TIMG . 'favicon.ico';
@@ -52,17 +92,18 @@ function dtdsh_favicons() {
 	echo $faviconarray;
 }
 add_action( 'wp_head', 'dtdsh_favicons' );
-add_action(' admin_head', 'dtdsh_favicons');
+add_action( 'admin_head', 'dtdsh_favicons');
 endif;
 
-// Contact Form 7　のファイルは不要
-add_filter( 'wpcf7_load_js', '__return_false' );
-add_filter( 'wpcf7_load_css', '__return_false' );
 
-// ビジュアルエディタ用CSS
+/*
+ * ビジュアルエディタ用CSS
+ */
 add_editor_style( TCSS . 'editor-style.css' );
 
-// HTML_Format
+/*
+ HTML圧縮
+ */
 if ( ! function_exists( 'dtdsh_html_format' ) ) :
 function dtdsh_html_format( $contents, $on_s = true ) {
 	// 連続改行削除

@@ -8,9 +8,7 @@ let gulp = require('gulp'),
 
 gulp.task('server', () => {
 	$.browser({
-		server: {
-			proxy: config.server.proxy
-		}
+		proxy: config.server.url
 	});
 });
 gulp.task('reload', () => {

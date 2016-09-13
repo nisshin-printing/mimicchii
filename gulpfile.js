@@ -14,8 +14,6 @@ gulp.task('watch', () => {
 	gulp.watch(config.path.php.watch, ['reload']);
 	gulp.watch(config.path.style.watch, ['style']);
 	gulp.watch(config.path.js.watch, ['webpack']);
-	gulp.watch(config.path.svg.watch, ['svg']);
-	gulp.watch(config.path.img.watch, ['img']);
 });
 
 /**
@@ -36,10 +34,7 @@ gulp.task('production', (callback) => {
 /**
  * default タスク
  */
-var defaultTasks = ['server','watch', 'webpack'];
-if (config.autoTest) {
-	defaultTasks.push('watchTest');
-}
+var defaultTasks = ['server', 'watch'];
 gulp.task('default', () => {
 	return runSequence(defaultTasks);
 });

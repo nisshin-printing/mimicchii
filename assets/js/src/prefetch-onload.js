@@ -1,5 +1,5 @@
 (function(document) {
-	var servers = [
+	servers = [
 		/* google */
 		'maps.googleapis.com',
 		'apis.google.com',
@@ -47,9 +47,9 @@
 		'maxcdn.bootstrapcdn.com',
 
 		// Jetpack - Photon
-		'//i0.wp.com',
-		'//i1.wp.com',
-		'//i2.wp.com',
+		'i0.wp.com',
+		'i1.wp.com',
+		'i2.wp.com'
 	], i, e, link = document.createDocumentFragment();
 
 	for (i = servers.length-1; i >= 0; i--) {

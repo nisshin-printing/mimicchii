@@ -14,26 +14,26 @@ gulp.task('webpack', () => {
 	return gulp.src(config.path.js.src)
 		.pipe($.webpack({
 			entry: {
-				app: 'assets/js/src/dtdsh-app.js',
-				prefetch: 'assets/js/src/prefetch-onload.js',
+				app: './assets/js/src/dtdsh-app.js',
+				prefetch: './assets/js/src/prefetch-onload.js',
 			},
 			output: {
-				filename: '[name].js'
+				filename: '[name].min.js'
 			},
 			resolve: {
-				modulesDirectories: [
-					'node_modules',
-					'assets/js/src'
-				]
+				modulesDirectories: ['node_modules'],
+				alias: {
+					npm: 'node_modules',
+					Foundation: '../node_modules/foundation-sites/dist/foundation.js',
+					svg4everybody: '../node_modules/svg4everybody/dist/svg4everybody.js'
+				}
 			},
 			module: {
-				preLoaders: [
-					{
-						test: /\.js$/,
-						exclude: /Spec\.js$/i,
-						loaders: ['eslint']
-					}
-				],
+				preLoaders: [{
+					test: /\.js$/,
+					exclude: /Spec\.js$/i,
+					loaders: ['eslint']
+				}],
 				loaders: [{
 					test: /Spec\.js$/i,
 					exclude: /node_modules/,
@@ -41,9 +41,16 @@ gulp.task('webpack', () => {
 				}]
 			},
 			plugins: [
-				
+				new webpack.optimize.DedupePlugin(),
+				new webpack.optimize.AggressiveMergingPlugin(),
+				new webpack.ProvidePlugin({
+					jQuery: 'jquery',
+					$: 'jquery',
+					jquery: 'jquery'
+				}),
+				new webpack.optimize.UglifyJsPlugin({ minimize: true })
 			]
-		}, webpack))
-		.pipe($.uglify())
-		.pipe(gulp.dest(config.path.js.dest));
+		}))
+		.pipe(gulp.dest(config.path.js.dest))
+		.pipe($.browser.reload({stream: true}));
 });

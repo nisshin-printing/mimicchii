@@ -1,4 +1,4 @@
-'use strigt';
+'use strict';
 /**
  * タスク設定ファイル
  */
@@ -33,12 +33,11 @@ module.exports = {
 		clean: true
 	},
 	server: {
-		src: '**/*',
 		url: 'dtdsh.dev/'
 	},
 	path: {
 		php: {
-			src: '**/*.scss'
+			watch: '**/*.php'
 		},
 		style: {
 			src: ['assets/sass/**/*.scss', '!assets/sass/**/_*.scss'],
@@ -56,7 +55,8 @@ module.exports = {
 			dest: 'assets/js'
 		},
 		image: {
-			src: 'assets/img/src',
+			src: 'assets/img/src/**/*',
+			watch: 'assets/img/src/**/*',
 			dest: 'assets/img/'
 		}
 	}
