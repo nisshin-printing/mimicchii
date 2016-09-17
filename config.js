@@ -32,6 +32,9 @@ module.exports = {
 		out: 'public/styleguide',
 		clean: true
 	},
+	js: {
+		sourcemaps: './maps'
+	},
 	server: {
 		url: 'dtdsh.dev/'
 	},

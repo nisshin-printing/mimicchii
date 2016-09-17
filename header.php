@@ -11,8 +11,12 @@ echo '<!DOCTYPE html><html lang="ja" dir="ltr">',
 $prefix, '">',
 '<meta charset="UTF-8">',
 '<meta http-equiv="X-UA-Compatible" content="IE=edge,chorme=1"><meta name="viewport" content="width=device-width, initial-scale=1.0">',
-'<!--[if lt IE 9]><script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script><script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script><![endif]--><script>' . file_get_contents( TJS . 'prefetch.min.js' ) . '</script><meta name="theme-color" content="#FFF">',
-'<script>svg4everybody();</script>';
+'<!--[if lt IE 9]><script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script><script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script><![endif]--><script>' . file_get_contents( TJS . 'prefetch-onload.min.js' ) . '</script><meta name="theme-color" content="#FFF">',
+'<!--[if IE]>',
+'<script>var doc = document;eval("var document = doc");</script>',
+'<script src="', TJS, 'svg4everybody.min.js"></script>',
+'<script>svg4everybody();</script>',
+'<![endif]-->',
 wp_head();
 ?></head>
 <body id="PageTop" <?php body_class( 'u-background' ); ?>>
@@ -31,7 +35,7 @@ wp_head();
 			</svg>
 		</button>
 	</div>
-	<header id="header-main" class="header-main" role="banner">
+	<header id="header-main" role="banner">
 		<div class="header-main-container u-background js-headroom">
 			<div id="js-nav-main-button" class="header-main-nav-button">
 				<button type="button" class="waves-effect" title="メニュー">

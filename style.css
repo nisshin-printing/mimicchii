@@ -1,31 +1,46 @@
 /*
-Error: File to import not found or unreadable: foundation/settings/settings.
+Error: File to import not found or unreadable: util/util.
        Load paths:
          C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass
          C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets
          C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/foundation
          Compass::SpriteImporter
-        on line 8 of C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/style.scss
+        on line 43 of C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/_foundation-settings.scss
+        from line 8 of C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/style.scss
 
-3: $noto-font: 'Quicksand', 'Noto Sans Japanese', '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-4: $imgfolder: 'assets/img/';
-5: $font: 'assets/font/';
-6: // Frame Works Import
-7: @import 'color-settings';
-8: @import 'foundation/settings/settings';
-9: @import 'foundation';
-10: @include foundation-global-styles;
-11: @include foundation-grid;
-12: @include foundation-typography;
-13: @include foundation-forms;
+38: @include foundation-table;
+39: @include foundation-tabs;
+40: @include foundation-thumbnail;
+41: @include foundation-title-bar;
+42: @include foundation-tooltip;
+43: @include foundation-top-bar;
+44: @include foundation-visibility-classes;
+45: @include foundation-float-classes;
+46: 
+47: @import 'mixin';
+48: @import 'framework/uiGradients';
 
 Backtrace:
+C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/_foundation-settings.scss:43
 C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/style.scss:8
 C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:67:in `rescue in import'
 C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:45:in `import'
 C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:28:in `imported_file'
 C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:37:in `css_import?'
 C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `map'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
 C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
 C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
@@ -65,4 +80,4 @@ C:/Ruby21-x64/bin/compass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: foundation/settings/settings.\A        Load paths:\A          C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass\A          C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets\A          C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/foundation\A          Compass::SpriteImporter\A         on line 8 of C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/style.scss\A \A 3: $noto-font: 'Quicksand', 'Noto Sans Japanese', '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;\A 4: $imgfolder: 'assets/img/';\A 5: $font: 'assets/font/';\A 6: // Frame Works Import\A 7: @import 'color-settings';\A 8: @import 'foundation/settings/settings';\A 9: @import 'foundation';\A 10: @include foundation-global-styles;\A 11: @include foundation-grid;\A 12: @include foundation-typography;\A 13: @include foundation-forms;"; }
+  content: "Error: File to import not found or unreadable: util/util.\A        Load paths:\A          C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass\A          C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets\A          C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/foundation\A          Compass::SpriteImporter\A         on line 43 of C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/_foundation-settings.scss\A         from line 8 of C:/Users/kazuki/vm/dtdsh/www/wordpress/wp-content/themes/dtdsh/assets/sass/style.scss\A \A 38: @include foundation-table;\A 39: @include foundation-tabs;\A 40: @include foundation-thumbnail;\A 41: @include foundation-title-bar;\A 42: @include foundation-tooltip;\A 43: @include foundation-top-bar;\A 44: @include foundation-visibility-classes;\A 45: @include foundation-float-classes;\A 46: \A 47: @import 'mixin';\A 48: @import 'framework/uiGradients';"; }

@@ -7,7 +7,7 @@
 
 let gulp = require('gulp'),
 	config = require('../config'),
-	$ = require('./plugins'),
+	$ = require('./plugins');
 
 gulp.task('preJs', () => {
 	return gulp.src(config.path.preJs.src)
@@ -16,11 +16,11 @@ gulp.task('preJs', () => {
 		}))
 		.pipe($.sourcemaps.init())
 		.pipe($.babel())
-		.pipe($.sourcemaps.write(config.js.sourcemaps))
 		.pipe($.uglify())
 		.pipe($.rename({
 			extname: '.min.js'
 		}))
+		.pipe($.sourcemaps.write(config.js.sourcemaps))
 		.pipe(gulp.dest(config.path.preJs.dest))
 		.pipe($.browser.reload({stream: true}));
 });
@@ -33,11 +33,11 @@ gulp.task('srcJs', () => {
 		.pipe($.sourcemaps.init())
 		.pipe($.babel())
 		.pipe($.concat('vendor.js'))
-		.pipe($.sourcemaps.write(config.js.sourcemaps))
 		.pipe($.uglify())
 		.pipe($.rename({
 			extname: '.min.js'
 		}))
+		.pipe($.sourcemaps.write(config.js.sourcemaps))
 		.pipe(gulp.dest(config.path.srcJs.dest))
 		.pipe($.browser.reload({stream: true}));
 });

@@ -15,11 +15,11 @@ gulp.task('style', () => {
 		.pipe($.sassLint())
 		.pipe($.sassLint.format())
 		.pipe($.sassLint.failOnError())
-		.pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.init()))
+		.pipe($.sourcemaps.init())
 		.pipe($.sass(config.style.sass))
 		.pipe($.autoprefixer(config.style.autoprefixer))
-		.pipe($.if(!config.IS_PRODUCTION, $.sourcemaps.write(config.style.soucemaps)))
 		.pipe($.cssmin())
+		.pipe($.sourcemaps.write(config.style.soucemaps))
 		.pipe(gulp.dest(config.path.style.dest))
 		.pipe($.browser.stream({match: '**/*.css'}));
 });

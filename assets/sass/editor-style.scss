@@ -3,9 +3,10 @@ $main-font: 'Quicksand', '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギ
 $noto-font: 'Quicksand', 'Noto Sans Japanese', '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 $font: '../font/';
 $img: '../img/';
-@import "color-settings";
+@import 'color-settings';
 // Fonts
 @import 'fonts/font-include';
+
 .mceContentBody {
 	font-family: $noto-font;
 	font-weight: 200;

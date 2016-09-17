@@ -1,5 +1,7 @@
 'use strict';
 
+require('es6-promise').polyfill();
+
 let gulp = require('gulp'),
 	runSequence = require('run-sequence');
 
@@ -16,6 +18,7 @@ gulp.task('watch', () => {
 	gulp.watch(config.path.preJs.watch, ['preJs']);
 	gulp.watch(config.path.srcJs.watch, ['srcJs']);
 	gulp.watch(config.path.svg.watch, ['svg', 'svg2png']);
+	gulp.watch(config.path.image.watch, ['image']);
 });
 
 /**
