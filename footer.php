@@ -1,4 +1,4 @@
-<section class="c-contact u-background-accent">
+<section class="c-contact u-alt-background">
 	<div class="c-row">
 		<div class="c-contact_message">
 			<button class="c-contact_back js-contact-back" type="button" title="お問い合わせの種類に戻る">
@@ -11,18 +11,18 @@
 		<div class="c-contact_wrapper">
 			<div class="c-contact_content" data-param="home" data-text="日進印刷株式会社です。<br>マーケティング知識を武器に売上向上に貢献します。"></div>
 			<div class="c-contact_content -menu js-contact" data-param="menu" data-text-type="greeting" data-text="何かお探しですか？" data-greeting-morning="おはようございます。<br>何かお探しですか？" data-greeting-afternoon="こんにちは。<br>何かお探しですか？" data-greeting-evening="こんばんは。<br>何かお探しですか？" data-greeting-night="もう寝る時間ですよ。<br>何かお探しですか？" data-success="メッセージが送信されました。">
-				<div class="medium-4 column">
-					<button class="c-contact_menu_item o-button -hover u-background-accent-reverse u-foreground-accent-reverse js-contact-step" type="button" data-page="project">
+				<div class="medium-4 column text-center">
+					<button class="button expanded o-hollow js-contact-step" type="button" data-page="project">
 						<span class="o-button_text">お仕事の依頼</span>
 					</button>
 				</div>
-				<div class="medium-4 column">
-					<button class="c-contact_menu_item o-button -hover u-background-accent-reverse u-foreground-accent-reverse js-contact-step" type="button" data-page="join">
+				<div class="medium-4 column text-center">
+					<button class="button expanded o-hollow js-contact-step" type="button" data-page="join">
 						<span class="o-button_text">入社・提携など</span>
 					</button>
 				</div>
-				<div class="medium-4 column">
-					<button class="c-contact_menu_item o-button -hover u-background-accent-reverse u-foreground-accent-reverse js-contact-step" type="button" data-page="message">
+				<div class="medium-4 column text-center">
+					<button class="button expanded o-hollow js-contact-step" type="button" data-page="message">
 						<span class="o-button_text">お問い合わせ</span>
 					</button>
 				</div>

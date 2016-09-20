@@ -7,37 +7,60 @@
 
 let gulp = require('gulp'),
 	config = require('../config'),
-	$ = require('./plugins');
+	source = require('vinyl-source-stream'),
+	browserify = require('browserify'),
+	watchify = require('watchify'),
+	$ = require('./plugins'),
+	handleErrors = () => {
+		let args = Array.prototype.slice.call(arguments);
+		$.notify.onError('<%= error.message %>')
+			.apply(this, args);
+		this.emit('end');
+	};
 
+/*
+ * Browserify & Gulp
+ */
+gulp.task('setWatch', () => {
+	global.isWatching = true;
+});
+gulp.task('browserify', () => {
+	let b = browserify(config.browserify.bundleOption)
+		.transform('babelify')
+		.transform('browserify-shim')
+		.transform('debowerify')
+		.pipe($.sourcemaps.init())
+		.pipe($.sourcemaps.write(config.js.sourcemaps));
+	let bundle = () => {
+		b.bundle()
+			.pipe($.plumber({
+				errorHandler: $.notify.onError('<%= error.message %>')
+			}))
+			.pipe(source(config.browserify.filename))
+			.pipe(gulp.dest(config.browserify.output));
+	};
+	if (global.isWatching) {
+		let bundler = watchify(b);
+		bundler.on('update', bundle);
+	}
+	bundle();
+});
+gulp.task('watchify', ['setWatch', 'browserify']);
+
+/*
+ * Precompress JS
+ */
 gulp.task('preJs', () => {
-	return gulp.src(config.path.preJs.src)
+	gulp.src(config.path.js.src)
 		.pipe($.plumber({
 			errorHandler: $.notify.onError('<%= error.message %>')
 		}))
 		.pipe($.sourcemaps.init())
-		.pipe($.babel())
 		.pipe($.uglify())
 		.pipe($.rename({
 			extname: '.min.js'
 		}))
 		.pipe($.sourcemaps.write(config.js.sourcemaps))
-		.pipe(gulp.dest(config.path.preJs.dest))
-		.pipe($.browser.reload({stream: true}));
-});
-
-gulp.task('srcJs', () => {
-	return gulp.src(config.path.srcJs.src)
-		.pipe($.plumber({
-			errorHandler: $.notify.onError('<%= error.message %>')
-		}))
-		.pipe($.sourcemaps.init())
-		.pipe($.babel())
-		.pipe($.concat('vendor.js'))
-		.pipe($.uglify())
-		.pipe($.rename({
-			extname: '.min.js'
-		}))
-		.pipe($.sourcemaps.write(config.js.sourcemaps))
-		.pipe(gulp.dest(config.path.srcJs.dest))
-		.pipe($.browser.reload({stream: true}));
-});
+		.pipe(gulp.dest(config.path.js.dest))
+		.pipe($.browser.reload({ stream: true }));
+})

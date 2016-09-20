@@ -35,38 +35,56 @@ address { font-style: normal }
 	color: #222;
 	background-color: #FFF;
 }
-.u-background-accent {
+.u-alt-background {
+	color: #FFF;
 	background-color: $accent-color;
 }
-.u-foreground-accent {
-	color: #FFF;
-}
 //========================  Loading Effect ========================================================================//
-.loader {
+.is-loading #loader {
+	visibility: visible;
+	opacity: 1;
+}
+#loader {
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate( -50%, -50% );
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 	z-index: 9999;
 	visibility: hidden;
 	opacity: 0;
 	transition: visibility, opacity;
 	transition-duration: 0s, .3s;
 	transition-delay: .3s, 0s;
-	overflow: visible;
-	padding-top: 3.75rem;
-	width: 3.75rem;
-	height: 0;
+}
+@keyframes loader-figure {
+	0% {
+		transform: scale(0)
+	}
+	30% {
+		transform: scale(1);
+		border-width: 1.875rem
+	}
+	70% {
+		opacity: 1
+	}
+	100% {
+		transform: scale(1);
+		border-width: 0;
+		opacity: 0
+	}
 }
 .loader-figure {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50% );
 	width: 3.75rem;
 	height: 3.75rem;
-	border: 0 solid;
+	border: 0px solid #FFF;
 	border-radius: 50%;
-	animation: loader-figure 1.15s infinite cubic-bezier( .215, .61, .355, 1 );
+	z-index: 10000;
+	animation: loader-figure 1.15s infinite cubic-bezier(.215,.61,.355,1);
 }
 // ============================== Main ============================================================================= //
 #content-wrapper,

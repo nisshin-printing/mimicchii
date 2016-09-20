@@ -145,6 +145,10 @@
 		top: 15%;
 	}
 }
+.o-button_text {
+	font-weight: bold;
+	font-size: 1.25rem;
+}
 // Open
 .has-contact-open {
 	.c-fab_ripple {
@@ -164,4 +168,9 @@
 		opacity: 1;
 		overflow-y: auto;
 	}
+}
+.c-contact_item.is-active {
+	opacity: 1;
+	transform: 0;
+	transition-delay: 1.5s;
 }

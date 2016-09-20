@@ -15,8 +15,7 @@ let tasks = require('./gulp/load'),
 gulp.task('watch', () => {
 	gulp.watch(config.path.php.watch, ['reload']);
 	gulp.watch(config.path.style.watch, ['style']);
-	gulp.watch(config.path.preJs.watch, ['preJs']);
-	gulp.watch(config.path.srcJs.watch, ['srcJs']);
+	gulp.watch(config.path.js.watch, ['preJs']);
 	gulp.watch(config.path.svg.watch, ['svg', 'svg2png']);
 	gulp.watch(config.path.image.watch, ['image']);
 });
@@ -39,7 +38,7 @@ gulp.task('production', (callback) => {
 /**
  * default タスク
  */
-var defaultTasks = ['server', 'watch'];
+var defaultTasks = ['server', 'watch', 'watchify'];
 gulp.task('default', () => {
 	return runSequence(defaultTasks);
 });

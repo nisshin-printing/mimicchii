@@ -1,9 +1,9 @@
-.hollow {
-	border-color: $white;
-	color: $white;
+.o-hollow {
+	color: $accent-color;
+	background-color: $white;
+	transition: .3s;
 	&:hover {
-		border-color: $black;
-		color: $black;
-		background-color: $white;
+		color: $accent-color;
+		background-color: darken($white, 15%);
 	}
 }

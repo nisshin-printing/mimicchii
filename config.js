@@ -35,6 +35,18 @@ module.exports = {
 	js: {
 		sourcemaps: './maps'
 	},
+	browserify: {
+		bundleOption: {
+			cache: {},
+			packageCache: {},
+			fullPaths: false,
+			debug: true,
+			entries: './assets/js/src/dtdsh-app.js',
+			extensions: 'js'
+		},
+		output: 'assets/js/pre-compress/',
+		filename: 'apps.js'
+	},
 	server: {
 		url: 'dtdsh.dev/'
 	},
@@ -44,22 +56,17 @@ module.exports = {
 		},
 		style: {
 			src: ['assets/sass/**/*.scss', '!assets/sass/**/_*.scss'],
-			watch: ['assets/sass/**/*.scss'],
+			watch: 'assets/sass/**/*.scss',
 			dest: 'assets/css'
 		},
 		svg: {
 			src: 'assets/svg/icon/*.svg',
-			watch: ['assets/svg/*'],
+			watch: 'assets/svg/*',
 			dest: 'assets/svg',
 		},
-		preJs: {
-			src: ['assets/js/pre-compress/**/*.js'],
-			watch: ['assets/js/pre-compress/**/*.js'],
-			dest: 'assets/js'
-		},
-		srcJs: {
-			src: ['assets/js/src/**/*.js'],
-			watch: ['assets/js/src/**/*.js'],
+		js: {
+			src: 'assets/js/pre-compress/**/*.js',
+			watch: 'assets/js/pre-compress/**/*.js',
 			dest: 'assets/js'
 		},
 		image: {
