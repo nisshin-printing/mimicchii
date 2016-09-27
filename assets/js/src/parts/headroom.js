@@ -13,19 +13,20 @@ let headerMain = {
 			pinned: 'is-pinned',
 			unpinned: 'is-unpinned',
 			top: 'is-top',
-			notTop: 'is-not-top'
+			notTop: 'is-not-top',
+			bottom: false,
+			notBottom: false
 		}
 	}
 };
 let headroomContainer = new Headroom(headerMain.ele.container, headerMain.options),
 	headroomBackground = new Headroom(headerMain.ele.background, headerMain.options),
 	headroomNav = new Headroom(headerMain.ele.nav, headerMain.options);
+headroomBackground.init();
 if (window.matchMedia("(max-width: 1023px)").matches) {
-	headroomBackground.destroy();
 	headroomNav.destroy();
 	headroomContainer.init();
 } else if (window.matchMedia("(min-width: 1024px)").matches) {
 	headroomContainer.destroy();
-	headroomBackground.init();
 	headroomNav.init();
 }

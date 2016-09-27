@@ -36,7 +36,7 @@ wp_head();
 		</button>
 	</div>
 	<header id="header-main" role="banner">
-		<div class="u-background js-header-background"></div>
+		<div class="u-background header-main-background js-header-background"></div>
 		<div class="header-main-container js-header-container">
 			<div id="js-nav-main-button" class="header-main-nav-button">
 				<button type="button" class="waves-effect" title="メニュー">
@@ -56,7 +56,7 @@ wp_head();
 					<use xlink:href="<?php echo TSVG, 'icons.svg#logo-vertical'; ?>">
 				</svg>
 			</a>
-			<div class="nav-main-wrapper js-header-nav">
+					<div class="nav-main-wrapper header-main-nav js-header-nav u-background">
 				<?php
 					wp_nav_menu( array(
 						'theme_location' => 'dtdsh-primarynav',

@@ -28,9 +28,7 @@ gulp.task('browserify', () => {
 	let b = browserify(config.browserify.bundleOption)
 		.transform('babelify')
 		.transform('browserify-shim')
-		.transform('debowerify')
-		.pipe($.sourcemaps.init())
-		.pipe($.sourcemaps.write(config.js.sourcemaps));
+		.transform('debowerify');
 	let bundle = () => {
 		b.bundle()
 			.pipe($.plumber({

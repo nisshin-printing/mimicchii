@@ -7,5 +7,6 @@ window.jQuery = $;
  * Parts
  */
 import './parts/headroom';
-import './parts/foundation';
 import './parts/contact-open';
+import './parts/side-navigation';
+import './parts/foundation';

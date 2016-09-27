@@ -1,6 +1,6 @@
 // ============================== HeadRoom ============================================================================= //
 .js-header-background {
-	height: 140px;
+	height: 76px;
 	z-index: 900;
 	transition: transform .3s,
 		background-color 0s,
@@ -10,6 +10,9 @@
 	left: 0;
 	right: 0;
 	backface-visibility: hidden;
+	@include breakpoint(large) {
+		height: 140px;
+	}
 	&.is-unpinned {
 		transform: translateY( -100% );
 	}
@@ -37,6 +40,9 @@
 // ============================== SP Header ============================================================================= //
 .header-main {
 	transition: transform .6s, opacity .3s;
+	text-align: center;
+}
+.header-main-container {
 	text-align: center;
 }
 .header-main-logo {
@@ -201,6 +207,7 @@
 		}
 	}
 }
+
 .nav-main {
 	margin: {
 		top: 100px;
@@ -235,6 +242,10 @@
 			color: currentColor;
 			padding: 0 1.5625rem;
 			line-height: 40px;
+			transition: opacity .2s cubic-bezier(.645, .045, .355, 1);
+			&:hover {
+				opacity: .65;
+			}
 			@include breakpoint( medium ) {
 				padding: 0 1rem;
 				line-height: 56px;
