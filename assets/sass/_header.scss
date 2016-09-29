@@ -1,16 +1,16 @@
 // ============================== HeadRoom ============================================================================= //
 .js-header-background {
 	height: 76px;
-	z-index: 900;
-	transition: transform .3s,
-		background-color 0s,
-		opacity .3s;
+	z-index: 800;
+	transition: transform .3s 0s,
+		background-color 0s 0s,
+		opacity .3s 0s;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	backface-visibility: hidden;
-	@include breakpoint(large) {
+	@include breakpoint( large ) {
 		height: 140px;
 	}
 	&.is-unpinned {
@@ -38,14 +38,14 @@
 	}
 }
 // ============================== SP Header ============================================================================= //
-.header-main {
+.c-header-main {
 	transition: transform .6s, opacity .3s;
 	text-align: center;
 }
-.header-main-container {
+.c-header-main_container {
 	text-align: center;
 }
-.header-main-logo {
+.o-header-main_logo {
 	position: relative;
 	display: inline-block;
 	transition: all .3s cubic-bezier( .4, 0, .2, 1 );
@@ -81,12 +81,12 @@
 		}
 	}
 }
-.is-unpinned .header-main-logo {
+.is-unpinned .c-header-main_logo {
 	@include breakpoint( large ) {
 		top: 6.25rem;
 	}
 }
-.header-main-nav-button {
+.c-header-main_navBtn {
 	@extend .hide-for-large;
 	position: absolute;
 	top: 0;
@@ -160,7 +160,7 @@
 		padding-right: 10%;
 	}
 }
-.has-nav-open .header-main-nav-button {
+.has-nav-open .c-header-main_nav-button {
 	button {
 		transform: rotate( -360deg );
 		border-radius: 50%;
@@ -184,7 +184,7 @@
 	}
 }
 // ============================== Main Menu ============================================================================= //
-.nav-main-wrapper {
+.c-nav-main_wrapper {
 	position: fixed;
 	top: 0;
 	left: -50%;
@@ -198,6 +198,7 @@
 	z-index: 2;
 	@include breakpoint( large ) {
 		position: static;
+		background-color: transparent;
 		width: 100%;
 		height: auto;
 		font-size: 1rem;
@@ -208,7 +209,7 @@
 	}
 }
 
-.nav-main {
+.c-nav-main {
 	margin: {
 		top: 100px;
 		bottom: 25px;
@@ -276,7 +277,7 @@
 }
 .has-nav-open {
 	overflow: hidden;
-	.nav-main-wrapper {
+	.c-nav-main_wrapper {
 		transform: translateX(100%);
 	}
 	.nav-overlay {

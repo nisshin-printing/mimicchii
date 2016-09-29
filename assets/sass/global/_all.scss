@@ -41,8 +41,8 @@ address { font-style: normal }
 }
 // ============================== Main ============================================================================= //
 #content-wrapper,
-footer,
-.c-row {
+.c-row,
+footer {
 	padding: {
 		top: 100px;
 		right: 25px;
@@ -57,7 +57,7 @@ footer,
 	}
 	@include breakpoint( large ) {
 		padding: {
-			top: 13.75rem;
+			top: 16.75rem;
 			right: 11.25rem;
 			left: 11.25rem;
 		}

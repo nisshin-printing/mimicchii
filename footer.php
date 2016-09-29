@@ -1,31 +1,30 @@
+<?php
+include TFUNC . 'change-message.php';
+?>
 <section class="c-contact u-alt-background">
-	<div class="c-row">
-		<div class="c-contact_message">
-			<button class="c-contact_back js-contact-back" type="button" title="お問い合わせの種類に戻る">
-				<span class="c-contact_back_arrow">
-					<svg class="c-contact_back_icon" role="image"><use xlink:href="<?php echo TSVG, 'locomotive.svg#arrow-back'; ?>"></svg>
-				</span>
-			</button>
-			<div class="contact_textbox js-contact-text" id="contact-form-title" contenteditable="false"></div>
-		</div>
-		<div class="c-contact_wrapper">
-			<div class="c-contact_content" data-param="home" data-text="日進印刷株式会社です。<br>マーケティング知識を武器に売上向上に貢献します。"></div>
-			<div id="js-contact" class="c-contact_content -menu" data-param="menu" data-text-type="greeting" data-text="何かお探しですか？" data-greeting-morning="おはようございます。<br>何かお探しですか？" data-greeting-afternoon="こんにちは。<br>何かお探しですか？" data-greeting-evening="こんばんは。<br>何かお探しですか？" data-greeting-night="寝る時間ですよ。<br>何かお探しですか？" data-success="メッセージが送信されました。">
-				<div class="medium-4 column text-center">
-					<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="project">
-						<span class="o-button_text">お仕事の依頼</span>
-					</button>
-				</div>
-				<div class="medium-4 column text-center">
-					<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="join">
-						<span class="o-button_text">入社・提携など</span>
-					</button>
-				</div>
-				<div class="medium-4 column text-center">
-					<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="message">
-						<span class="o-button_text">お問い合わせ</span>
-					</button>
-				</div>
+	<div class="c-row c-contact_content">
+		<button class="c-contact_back js-contact-back" type="button" title="お問い合わせの種類に戻る">
+			<span class="c-contact_back_arrow">
+				<svg class="c-contact_back_icon" role="image"><use xlink:href="<?php echo TSVG, 'locomotive.svg#arrow-back'; ?>"></svg>
+			</span>
+		</button>
+		<div class="contact_textbox js-contact-text" id="contact-form-title" contenteditable="false"></div>
+		<div id="js-contact" class="c-contact_wrapper" data-bgColor="#191970">
+			<p class="c-contact_message column"><?php getGreetingMS(); ?></p>
+			<div class="medium-4 column text-center">
+				<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="project">
+					<span class="o-button_text">お仕事の依頼</span>
+				</button>
+			</div>
+			<div class="medium-4 column text-center">
+				<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="join">
+					<span class="o-button_text">入社・提携</span>
+				</button>
+			</div>
+			<div class="medium-4 column text-center">
+				<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="message">
+					<span class="o-button_text">お問い合わせ</span>
+				</button>
 			</div>
 		</div>
 	</div>
