@@ -6,20 +6,18 @@ if ( is_single() ) {
 }
 $is_front = ( ! is_front_page() ) ? ' not-front' : '';
 
-// Have you visited the "dtdsh.com" at end?
-$firstClass = array( 'has-contact-open', 'u-alt-background' );
-$is_first = ( $_COOKIE['lastVisit'] ) ? 'u-background' : $firstClass;
-// Body_class
+// Have you visited the "dtdsh.com" at the end?
 add_filter( 'body_class', function( $classes ) {
-	global $is_first;
-	if ( 'u-background' !== $is_first ) {
-		$count = count( $is_first );
+	$firstClass = array( 'has-contact-open', 'u-alt-background', 'is-welcome' );
+	$returnClass = 'u-background';
+	if ( empty( $_COOKIE['lastVisit'] ) ) {
+		$count = count( $firstClass );
 		for ( $j = 0; $j < $count; $j++ ){
-			$classes[] = $is_first[$j];
-			unset( $data[$j]);
+			$classes[] = $firstClass[$j];
+			unset( $firstClass[$j]);
 		}
 	} else {
-		$classes[] = $is_first;
+		$classes[] = $returnClass;
 	}
 	return $classes;
 });
@@ -56,7 +54,7 @@ wp_head();
 		</button>
 	</div>
 	<header id="header-main" role="banner">
-		<div class="<?php echo 'c-header-main_background js-header-background ', $is_first; ?>"></div>
+		<div class="c-header-main_background js-header-background"></div>
 		<div class="c-header-main_container js-header-container">
 			<div id="js-nav-main-button" class="c-header-main_navBtn">
 				<button type="button" class="waves-effect" title="メニュー">
@@ -76,7 +74,7 @@ wp_head();
 					<use xlink:href="<?php echo TSVG, 'icons.svg#logo-vertical'; ?>">
 				</svg>
 			</a>
-					<div class="<?php echo 'c-nav-main_wrapper c-header-main_nav js-header-nav ', $is_first; ?>">
+					<div class="c-nav-main_wrapper c-header-main_nav js-header-nav">
 				<?php
 					wp_nav_menu( array(
 						'theme_location' => 'dtdsh-primarynav',

@@ -10,21 +10,24 @@ include TFUNC . 'change-message.php';
 		</button>
 		<div class="contact_textbox js-contact-text" id="contact-form-title" contenteditable="false"></div>
 		<div id="js-contact" class="c-contact_wrapper" data-bgColor="#191970">
-			<p class="c-contact_message column"><?php getGreetingMS(); ?></p>
-			<div class="medium-4 column text-center">
-				<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="project">
-					<span class="o-button_text">お仕事の依頼</span>
-				</button>
-			</div>
-			<div class="medium-4 column text-center">
-				<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="join">
-					<span class="o-button_text">入社・提携</span>
-				</button>
-			</div>
-			<div class="medium-4 column text-center">
-				<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="message">
-					<span class="o-button_text">お問い合わせ</span>
-				</button>
+			<p id="js-welcome" class="c-contact_message column"><?php isWelcomeMessage( true ); ?></p>
+			<div id="js-ctform">
+				<p class="c-contact_message column"><?php isWelcomeMessage( false ); ?></p>
+				<div class="medium-4 column text-center">
+					<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="project">
+						<span class="o-button_text">お仕事の依頼</span>
+					</button>
+				</div>
+				<div class="medium-4 column text-center">
+					<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="join">
+						<span class="o-button_text">入社・提携</span>
+					</button>
+				</div>
+				<div class="medium-4 column text-center">
+					<button class="button expanded o-hollow c-contact_menuItem js-contact-step" type="button" data-page="message">
+						<span class="o-button_text">お問い合わせ</span>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>

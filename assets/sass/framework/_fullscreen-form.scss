@@ -117,10 +117,6 @@
 		visibility 0s,
 		opacity 0s;
 }
-.has-contact-open .c-fab_button {
-	color: $accent-color;
-	background-color: #FFF;
-}
 .c-fab_icon {
 	position: absolute;
 	top: 50%;
@@ -136,7 +132,31 @@
 		opacity: 0;
 	}
 }
+
+
+
+
+//======================== Opening a Contact Form ========================================================================//
+.is-welcome {
+	.c-fab_button {
+		visibility: hidden;
+		opacity: 0;
+	}
+	.c-fab_icon {
+		&.-create {
+			opacity: 1;
+		}
+		&.-close {
+			opacity: 0;
+		}
+	}
+}
 .has-contact-open {
+	overflow: hidden;
+	.c-fab_button {
+		color: $accent-color;
+		background-color: #FFF;
+	}
 	.c-fab_icon {
 		&.-create {
 			opacity: 0;
@@ -145,13 +165,6 @@
 			opacity: 1;
 		}
 	}
-}
-
-
-
-//======================== Opening a Contact Form ========================================================================//
-.has-contact-open {
-	overflow: hidden;
 	.c-fab_ripple {
 		transform: scale(1);
 		opacity: 0;
@@ -169,9 +182,16 @@
 		opacity: 1;
 		overflow-y: auto;
 	}
-	.c-header-main_background {
-		transtion: background-color .3s;
+	.c-header-main_background,
+	.c-header-main_nav {
+		transition: background-color .3s;
+		@extend .u-alt-background;
 	}
+	
+}
+.c-header-main_background,
+.c-header-main_nav {
+	@extend .u-background;
 }
 // Contact section
 .c-contact {

@@ -5,7 +5,7 @@
 		cDays = 365,
 		now = new Date(),
 		days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday'),
-		year = now.getYear(),
+		year = now.getFullYear(),
 		month = now.getMonth() + 1,
 		date = now.getDate(),
 		day = now.getDay(),
