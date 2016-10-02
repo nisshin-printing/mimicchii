@@ -24,68 +24,19 @@ function dtdsh_header() {
 }
 endif;
 
-//========================  カスタムメニューWalker ========================================================================//
-// Custom Menu Walker
-class Top_Bar_Walker_Nav_Menu extends Walker_Nav_Menu {
-	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$output .= "\n" . '<ul class="submenu menu vertical is-dropdown-submenu" data-submenu role="menu">' . "\n";
-	}
-	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		global $wp_query;
-		$classes = 'menu-item-' . $item->object_id;
-		if ( ! empty( $item->classes ) ) {
-			$classes .= in_array('menu-item-has-children',$item->classes) ? ' is-dropdown-submenu-parent opens-right' : '';
-			$classes .= in_array('current-menu-item',$item->classes) ? ' active' : '';
-		}
-		$class_att = ! empty( $classes ) ? ' class="' . trim( $classes ) . '"' : '';
-		if ( $depth ) {
-			$output .= '<li' . $class_att . ' role="menuitem" data-is-click="false">';
-		} else {
-			$output .= '<li' . $class_att . ' role="menuitem">';
-		}
-		$attributes    = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
-		$attributes    .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target )  . '"' : '';
-		$attributes    .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
-		$attributes    .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
-		$attributes    .= ' class="waves-effect"';
-		$item_output   = $args->before;
-		$item_output   .= '<a' . $attributes . '>';
-		$item_output   .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output   .= '</a>';
-		$item_output   .= $args->after;
-		$output        .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	}
+
+
+//========================  minneから画像を取得 ========================================================================//
+function getMinneImage() {
+	require_once TFUNC . 'simple_html_dom.php';
+	$productsPage = file_get_html( 'https://minne.com/mimicchii/' );
+	$itemLink = $productsPage->find( '.gallery_img_roop_inner > a' );
+	
+	$output = $itemLink[0]->outertext . $itemLink[2]->outertext;
+	$output = str_replace( ' href="/items/', 'href="https://minne.com/items/', $output );
+	echo $output;
 }
-class Side_Nav_Walker_Nav_Menu extends Walker_Nav_Menu {
-	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$output .= "\n" . '<ul class="submenu menu vertical is-dropdown-submenu" data-submenu role="menu">' . "\n";
-	}
-	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		global $wp_query;
-		$classes = 'menu-item-' . $item->object_id;
-		if ( ! empty( $item->classes ) ) {
-			$classes .= in_array('menu-item-has-children',$item->classes) ? ' is-dropdown-submenu-parent opens-right' : '';
-			$classes .= in_array('current-menu-item',$item->classes) ? ' active' : '';
-		}
-		$class_att = ! empty( $classes ) ? ' class="' . trim( $classes ) . '"' : '';
-		if ( $depth ) {
-			$output .= '<li' . $class_att . ' role="menuitem" data-is-click="false">';
-		} else {
-			$output .= '<li' . $class_att . ' role="menuitem">';
-		}
-		$attributes    = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
-		$attributes    .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target )  . '"' : '';
-		$attributes    .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
-		$attributes    .= ! empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . '"' : '';
-		$attributes    .= ' class="waves-effect"';
-		$item_output   = $args->before;
-		$item_output   .= '<a' . $attributes . '>';
-		$item_output   .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output   .= '</a>';
-		$item_output   .= $args->after;
-		$output        .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	}
-}
+
 
 
 //========================  ソーシャルリンクのリスト ========================================================================//

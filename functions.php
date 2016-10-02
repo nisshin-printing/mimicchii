@@ -20,7 +20,6 @@ define( 'TFUNC', INC . 'functions' . DSEP );
 if ( ! isset( $content_width ) ){
 	$content_width = 1200;
 }
-require_once( INC . 'dtdsh-theme.php' );
 if ( ! function_exists( 'dtdsh_init' ) ) :
 function dtdsh_init() {
 }

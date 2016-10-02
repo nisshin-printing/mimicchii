@@ -45,10 +45,10 @@ module.exports = {
 			extensions: 'js'
 		},
 		output: 'assets/js/pre-compress/',
-		filename: 'apps.js'
+		filename: 'app.js'
 	},
 	server: {
-		url: 'dtdsh.dev/'
+		url: 'balance-design.dev/'
 	},
 	path: {
 		php: {
