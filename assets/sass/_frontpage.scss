@@ -8,7 +8,7 @@
 // POSTS
 .c-news {
 	time {
-		font-size: 3rem;
+		font-size: 2rem;
 		margin-right: 2rem;
 	}
 	.c-news_content {
@@ -35,20 +35,17 @@
 		display: block;
 		padding: 3rem;
 		text-align: center;
+		border: 2px solid lightgray;
+		margin: 0 auto;
+		width: 50%;
 	}
 }
 // SNS
 .c-sns {
-	text-align: center;
-	> a {
-		display: inline-block;
-		width: 30%;
-		text-align: center;
+	p {
+		margin-left: 6rem;
 	}
-	span,
-	img {
+	a {
 		display: inline-block;
-		width: 100%;
-		height: auto;
 	}
 }

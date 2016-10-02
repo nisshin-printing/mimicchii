@@ -38,24 +38,10 @@ ob_start();
 		<div class="column small-6">
 			<div class="c-minne"><a href="https://minne.com/mimicchii/" target="_blank" title="ミンネやってます。"><img src="//img-cdn.jg.jugem.jp/9df/2726016/20140401_62319.png" alt="みみっちぃ。ミンネ"></a></div>
 			<div class="c-sns">
-				<a href="https://twitter.com/nisshin_inc" class="c-sns_link" title="日進印刷株式会社のtwitter" target="_blank">
-					<span class="fa-stack fa-5x">
-						<i class="fa fa-square fa-stack-2x color-twitter"></i>
-						<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-					</span>
+				<p><a href="https://twitter.com/nisshin_inc" class="c-sns_link" title="日進印刷株式会社のtwitter" target="_blank"><span class="fa-stack fa-2x"><i class="fa fa-square fa-stack-2x color-twitter"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span>Twitter</p>
 				</a>
-				<a href="https://www.instagram.com/nisshin_inc/" class="c-sns_link" title="日進印刷株式会社のinstagram" target="_blank">
-					<span class="fa-stack fa-5x">
-						<i class="fa fa-square fa-stack-2x color-instagram"></i>
-						<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-				<a href="https://www.facebook.com/dtdsh.nisshin" class="c-sns_link" title="日進印刷株式会社のfacebook" target="_blank">
-					<span class="fa-stack fa-5x">
-						<i class="fa fa-square fa-stack-2x color-facebook"></i>
-						<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
+				<p><a href="https://www.instagram.com/nisshin_inc/" class="c-sns_link" title="日進印刷株式会社のinstagram" target="_blank"><span class="fa-stack fa-2x"><i class="fa fa-square fa-stack-2x color-instagram"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span></a>Instagram</p>
+				<p><a href="https://www.facebook.com/dtdsh.nisshin" class="c-sns_link" title="日進印刷株式会社のfacebook" target="_blank"><span class="fa-stack fa-2x"><i class="fa fa-square fa-stack-2x color-facebook"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a>Facebook</p>
 			</div>
 		</div>
 	</div>
