@@ -16,14 +16,10 @@ if ( is_category( 'portfolio' ) ) {
 }
 echo '<section class="layout-' . $is_layout . '">',
 		'<div class="row">',
-			'<div class="column article-body">';
+			'<div class="column">';
 		if ( have_posts() ) :
 			while ( have_posts() ) : the_post();
-				if ( is_page( 'public-relations' ) ) {
-					get_template_part( 'inc/templates/public-relations' );
-				} else {
-					get_template_part( 'inc/templates/content' );
-				}
+				get_template_part( 'inc/templates/content' );
 			endwhile;
 		else :
 			get_template_part( 'inc/templates/no-content' );
