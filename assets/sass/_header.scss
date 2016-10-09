@@ -3,7 +3,7 @@ header {
 	h1 {
 		margin: 3rem auto;
 		font-size: 4.5rem;
-		a {
+		a:nth-of-type(2) {
 			display: block;
 			text-align: right;
 			text-decoration: none;

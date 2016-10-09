@@ -42,17 +42,8 @@ function dtdshtheme_scripts() {
 	// Contact Form 7のCSSは不要
 	add_filter( 'wpcf7_load_js', '__return_false' );
 	// JS登録
-	wp_register_script( 'theme-app', TJS . 'apps.min.js', array( 'jquery' ), NULL, true );
 	wp_register_script( 'google-map', '//maps.googleapis.com/maps/api/js?key=AIzaSyAN4kMQJOMnCR-Y0GR8QylbjAZiHLGm2UE', array(), NULL, true );
 	// 発行
-	wp_enqueue_script( 'vendor' );
-	wp_enqueue_script( 'theme-app' );
-	if ( is_page( '11111' ) ) {
-		wp_enqueue_script( 'google-map' );
-	}
-	if ( function_exists( 'wpcf7_enqueue_scripts' ) && is_page( '11111' ) ) {
-		wpcf7_enqueue_scripts();
-	}
 }
 add_action( 'wp_enqueue_scripts', 'dtdshtheme_scripts' );
 

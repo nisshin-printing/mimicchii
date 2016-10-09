@@ -5,7 +5,8 @@ if ( is_page() ) {
 ?>
 <article>
 	<h2><?php the_title(); ?></h2>
-	<div class="post-meta"><i class="fa fa-calendar"></i>
+	<div class="post-meta">
+		<i class="fa fa-calendar"></i>
 		<time datetime="<?php the_time( 'c' ); ?>" itemprop="datePublished"><?php the_time( 'm/d' ); ?></time>
 	</div>
 	<?php the_content(); ?>

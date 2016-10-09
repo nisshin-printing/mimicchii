@@ -19,6 +19,6 @@ wp_head();
 <body id="PageTop" <?php body_class( 'is-loading' ); ?>>
 	<header>
 		<div class="row">
-			<h1>みみっちぃ訳ではない。<a href="http://dtdsh.com/" title="By 日進印刷株式会社" target="_blank">by 日進印刷株式会社</a></h1>
+			<h1><a href="<?php echo DTDSH_HOME_URL; ?>" title="<?php echo DTDSH_SITENAME; ?>">みみっちぃ訳ではない。</a><a href="http://dtdsh.com/" title="By 日進印刷株式会社" target="_blank">by 日進印刷株式会社</a></h1>
 		</div>
 	</header>
